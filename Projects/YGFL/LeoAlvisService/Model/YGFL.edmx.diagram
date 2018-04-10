@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="024e80d5d3d64e5da80cf0665f08ac6e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="YGFLDBModel.Album" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.ApplyMessage" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="YGFLDBModel.ApplyPosition" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.Artist" Width="1.5" PointX="9.75" PointY="6.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.ArtistDetail" Width="1.5" PointX="12" PointY="6.5" />
+        <EntityTypeShape EntityType="YGFLDBModel.Disk" Width="1.5" PointX="9.75" PointY="2.75" />
+        <EntityTypeShape EntityType="YGFLDBModel.ProductDetail" Width="1.5" PointX="5.75" PointY="8.5" />
+        <EntityTypeShape EntityType="YGFLDBModel.Show" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.ShowCategory" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="YGFLDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9.5" />
+        <EntityTypeShape EntityType="YGFLDBModel.Track" Width="1.5" PointX="12" PointY="2.875" />
+        <EntityTypeShape EntityType="YGFLDBModel.Video" Width="1.5" PointX="5.25" PointY="4.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.VideoServer" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="YGFLDBModel.FK_Album_Video" />
+        <AssociationConnector Association="YGFLDBModel.FK_Disk_Album" />
+        <AssociationConnector Association="YGFLDBModel.FK_ApplyMessage_ApplyPosition" />
+        <AssociationConnector Association="YGFLDBModel.FK_ArtistDetail_Artist" />
+        <AssociationConnector Association="YGFLDBModel.FK_Show_Artist" />
+        <AssociationConnector Association="YGFLDBModel.FK_Track_Disk" />
+        <AssociationConnector Association="YGFLDBModel.FK_Video_Disk" />
+        <AssociationConnector Association="YGFLDBModel.FK_Show_ShowCategory" />
+        <AssociationConnector Association="YGFLDBModel.FK_Video_Show" />
+        <AssociationConnector Association="YGFLDBModel.FK_Video_VideoServer" />
+        <AssociationConnector Association="YGFLDBModel.AlbumArtist" />
+        <AssociationConnector Association="YGFLDBModel.VideoArtist" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
