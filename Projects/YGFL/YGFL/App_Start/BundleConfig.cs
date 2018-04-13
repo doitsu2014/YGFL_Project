@@ -34,13 +34,25 @@ namespace YGFL
                     "~/Content/template-admin/luna_admin-v1.3/vendor/bootstrap/css/bootstrap.css",
                     "~/Content/template-admin/luna_admin-v1.3/styles/pe-icons/pe-icon-7-stroke.css",
                     "~/Content/template-admin/luna_admin-v1.3/styles/stroke-icons/style.css",
-                    "~/Content/template-admin/luna_admin-v1.3/styles/style.css"));
+                    "~/Content/template-admin/luna_admin-v1.3/styles/style.css",
+                    "~/Content/template-admin/luna_admin-v1.3/vendor/animate.css/animate.css",
+                    "~/Content/template-admin/luna_admin-v1.3/styles/pe-icons/helper.css",
+                    "~/Content/template-admin/luna_admin-v1.3/vendor/toastr/toastr.min.css",
+                    "~/Content/template-admin/luna_admin-v1.3/vendor/datatables/datatables.min.css"
+                    ));
             // Luna main scripts
             bundles.Add(new ScriptBundle("~/Content/luna-main-script").Include(
                 "~/Content/template-admin/luna_admin-v1.3/vendor/pacejs/pace.min.js",
                 "~/Content/template-admin/luna_admin-v1.3/vendor/jquery/dist/jquery.min.js",
                 "~/Content/template-admin/luna_admin-v1.3/vendor/bootstrap/js/bootstrap.min.js",
-                "~/Content/template-admin/luna_admin-v1.3/scripts/luna.js"));
+                "~/Content/template-admin/luna_admin-v1.3/scripts/luna.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/sparkline/index.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/toastr/toastr.min.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/flot/jquery.flot.min.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/flot/jquery.flot.resize.min.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/flot/jquery.flot.spline.js",
+                "~/Content/template-admin/luna_admin-v1.3/vendor/datatables/datatables.min.js"
+                ));
         }
     }
 }

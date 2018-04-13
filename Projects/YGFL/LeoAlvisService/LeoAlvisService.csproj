@@ -108,6 +108,8 @@
     <Compile Include="Repositories\ArtistRepository.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Services\ArtistService.cs" />
+    <Compile Include="Utils\JQueryParameters.cs" />
     <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,9 +123,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model\YGFL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
