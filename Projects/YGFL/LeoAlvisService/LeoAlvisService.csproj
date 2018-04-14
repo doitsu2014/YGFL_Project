@@ -123,6 +123,7 @@
     <Compile Include="Services\ArtistService.cs" />
     <Compile Include="Utils\JQueryParameters.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <Compile Include="ViewModels\ArtistViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
