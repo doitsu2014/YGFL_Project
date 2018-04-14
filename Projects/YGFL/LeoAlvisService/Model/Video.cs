@@ -27,7 +27,7 @@ namespace LeoAlvisService.Model
         public Nullable<int> ServerID { get; set; }
         public Nullable<int> ShowID { get; set; }
         public Nullable<int> DiskID { get; set; }
-        public bool IsActive { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Album> Albums { get; set; }

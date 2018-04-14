@@ -25,7 +25,7 @@ namespace LeoAlvisService.Model
         public int AlbumID { get; set; }
         public string DiskName { get; set; }
         public Nullable<int> TrackAmount { get; set; }
-        public bool IsActive { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual Album Album { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

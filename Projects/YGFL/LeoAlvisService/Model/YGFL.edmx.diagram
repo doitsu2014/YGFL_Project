@@ -5,17 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="024e80d5d3d64e5da80cf0665f08ac6e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="YGFLDBModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="13.5" />
         <EntityTypeShape EntityType="YGFLDBModel.Album" Width="1.5" PointX="7.5" PointY="4.125" />
-        <EntityTypeShape EntityType="YGFLDBModel.ApplyMessage" Width="1.5" PointX="3" PointY="8.625" />
-        <EntityTypeShape EntityType="YGFLDBModel.ApplyPosition" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="YGFLDBModel.ApplyMessage" Width="1.5" PointX="10" PointY="9.625" />
+        <EntityTypeShape EntityType="YGFLDBModel.ApplyPosition" Width="1.5" PointX="7.75" PointY="10.125" />
         <EntityTypeShape EntityType="YGFLDBModel.Artist" Width="1.5" PointX="9.75" PointY="6.125" />
         <EntityTypeShape EntityType="YGFLDBModel.ArtistDetail" Width="1.5" PointX="12" PointY="6.5" />
+        <EntityTypeShape EntityType="YGFLDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="YGFLDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="YGFLDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="YGFLDBModel.AspNetUser" Width="1.5" PointX="3" PointY="9" />
         <EntityTypeShape EntityType="YGFLDBModel.Disk" Width="1.5" PointX="9.75" PointY="2.75" />
-        <EntityTypeShape EntityType="YGFLDBModel.ProductDetail" Width="1.5" PointX="5.75" PointY="8.5" />
+        <EntityTypeShape EntityType="YGFLDBModel.ProductDetail" Width="1.5" PointX="9.75" PointY="13.5" />
         <EntityTypeShape EntityType="YGFLDBModel.Show" Width="1.5" PointX="3" PointY="4.125" />
         <EntityTypeShape EntityType="YGFLDBModel.ShowCategory" Width="1.5" PointX="0.75" PointY="5" />
-        <EntityTypeShape EntityType="YGFLDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9.5" />
-        <EntityTypeShape EntityType="YGFLDBModel.Track" Width="1.5" PointX="12" PointY="2.875" />
+        <EntityTypeShape EntityType="YGFLDBModel.Track" Width="1.5" PointX="12" PointY="2.75" />
         <EntityTypeShape EntityType="YGFLDBModel.Video" Width="1.5" PointX="5.25" PointY="4.125" />
         <EntityTypeShape EntityType="YGFLDBModel.VideoServer" Width="1.5" PointX="3" PointY="0.75" />
         <AssociationConnector Association="YGFLDBModel.FK_Album_Video" />
@@ -23,12 +27,15 @@
         <AssociationConnector Association="YGFLDBModel.FK_ApplyMessage_ApplyPosition" />
         <AssociationConnector Association="YGFLDBModel.FK_ArtistDetail_Artist" />
         <AssociationConnector Association="YGFLDBModel.FK_Show_Artist" />
+        <AssociationConnector Association="YGFLDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="YGFLDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="YGFLDBModel.FK_Track_Disk" />
         <AssociationConnector Association="YGFLDBModel.FK_Video_Disk" />
         <AssociationConnector Association="YGFLDBModel.FK_Show_ShowCategory" />
         <AssociationConnector Association="YGFLDBModel.FK_Video_Show" />
         <AssociationConnector Association="YGFLDBModel.FK_Video_VideoServer" />
         <AssociationConnector Association="YGFLDBModel.AlbumArtist" />
+        <AssociationConnector Association="YGFLDBModel.AspNetUserRoles" />
         <AssociationConnector Association="YGFLDBModel.VideoArtist" />
       </Diagram>
     </edmx:Diagrams>

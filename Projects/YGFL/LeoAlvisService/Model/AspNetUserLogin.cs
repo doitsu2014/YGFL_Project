@@ -12,16 +12,12 @@ namespace LeoAlvisService.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ApplyMessage
+    public partial class AspNetUserLogin
     {
-        public int ID { get; set; }
-        public int PositionID { get; set; }
-        public string Name { get; set; }
-        public string SocialUsername { get; set; }
-        public string Email { get; set; }
-        public string PastExperience { get; set; }
-        public string Reason { get; set; }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+        public string UserId { get; set; }
     
-        public virtual ApplyPosition ApplyPosition { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }
