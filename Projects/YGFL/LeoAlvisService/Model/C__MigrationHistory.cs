@@ -12,16 +12,11 @@ namespace LeoAlvisService.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ApplyMessage
+    public partial class C__MigrationHistory
     {
-        public int ID { get; set; }
-        public int PositionID { get; set; }
-        public string Name { get; set; }
-        public string SocialUsername { get; set; }
-        public string Email { get; set; }
-        public string PastExperience { get; set; }
-        public string Reason { get; set; }
-    
-        public virtual ApplyPosition ApplyPosition { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

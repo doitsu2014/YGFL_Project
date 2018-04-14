@@ -27,7 +27,7 @@ namespace LeoAlvisService.Model
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<System.DateTime> ShowDate { get; set; }
-        public bool IsActive { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual Artist Artist { get; set; }
         public virtual ShowCategory ShowCategory { get; set; }

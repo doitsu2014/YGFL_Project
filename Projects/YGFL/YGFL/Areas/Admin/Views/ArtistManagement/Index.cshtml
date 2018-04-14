@@ -5,11 +5,14 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="view-header">
+            <div class="pull-right text-right" style="line-height: 14px">
+                <a href="#" class="btn btn-w-md btn-accent">Create Artist</a>
+            </div>
             <div class="header-icon">
                 <i class="pe page-header-icon pe-7s-albums"></i>
             </div>
             <div class="header-title">
-                <h3>Artist</h3>
+                <h3>Artists</h3>
             </div>
         </div>
         <hr>
@@ -23,19 +26,16 @@
                     <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
                     <a class="panel-close"><i class="fa fa-times"></i></a>
                 </div>
-                Basic feature of DataTables
             </div>
             <div class="panel-body">
-                <p>
-                    You can easily add filter feature or pagination and customize it with DOM positioning.
-                </p>
                 <div class="table-responsive">
                     <table id="artist-table" class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Number Of</th>
-                                <th>Name</th>
+                                <th>Artist</th>
                                 <th>AvatarURL</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,6 +76,35 @@
                         "aTargets": [2],
                         "bSortable": false,
                         "sClass": "text-center mid-v-align"
+                    },
+                    {
+                        "aTargets": [3],
+                        "sClass": "text-center mid-v-align",
+                        "bSortable": false,
+                        "mRender": function (data, type, row) {
+                            var data = row[3];
+
+                            $edit = $('<button/>', {
+                                'title':'Chỉnh sửa',
+                                'class': 'btn btn-w-md btn-primary',
+                                'data-action': 'open-modalCostCategory',
+                                'data-type': 'edit',
+                                'data-id': data,
+                                'html': '<i class="fa fa-paste"></i> Edit'
+
+
+                            });
+                           
+                            $trash = $('<button/>', {
+                                'class': 'btn btn-w-md btn-danger',
+                                'onclick': 'Delete(' + data + ')',
+                                'html': '<i class="fa fa-trash-o"></i> Delete'
+                             });
+
+                            return $edit[0].outerHTML +" "+ $trash[0].outerHTML;
+
+                        },
+                        "bSortable": false,
                     },
                 ],
                 "bAutoWidth": false,

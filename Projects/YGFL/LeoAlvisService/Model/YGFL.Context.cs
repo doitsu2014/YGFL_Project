@@ -25,16 +25,20 @@ namespace LeoAlvisService.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Album> Albums { get; set; }
         public virtual DbSet<ApplyMessage> ApplyMessages { get; set; }
         public virtual DbSet<ApplyPosition> ApplyPositions { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<ArtistDetail> ArtistDetails { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Disk> Disks { get; set; }
         public virtual DbSet<ProductDetail> ProductDetails { get; set; }
         public virtual DbSet<Show> Shows { get; set; }
         public virtual DbSet<ShowCategory> ShowCategories { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Track> Tracks { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<VideoServer> VideoServers { get; set; }

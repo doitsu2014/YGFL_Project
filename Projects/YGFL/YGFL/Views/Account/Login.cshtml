@@ -2,6 +2,7 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutAdminLogin.cshtml";
 }
 
 <!-- Main content-->
@@ -61,7 +62,7 @@
                         </p>*@
                 }
 
-                <form action="http://webapplayers.com/luna_admin-v1.3/index.html" id="loginForm" novalidate>
+                @*<form action="http://webapplayers.com/luna_admin-v1.3/index.html" id="loginForm" novalidate>
                     <div class="form-group">
                         <label class="control-label" for="username">Username</label>
                         <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
@@ -76,13 +77,13 @@
                         <button class="btn btn-accent">Login</button>
                         <a class="btn btn-default" href="register.html">Register</a>
                     </div>
-                </form>
+                </form>*@
             </div>
         </div>
     </div>
 </section>
 
-<h2>@ViewBag.Title.</h2>
+@*<h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -122,10 +123,6 @@
                 <p>
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
             }
         </section>
     </div>
@@ -134,7 +131,7 @@
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
-</div>
+</div>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

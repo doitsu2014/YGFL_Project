@@ -18,5 +18,6 @@ namespace LeoAlvisService.Model
         public string Name { get; set; }
         public double Price { get; set; }
         public string ImageURL { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     }
 }

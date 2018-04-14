@@ -64,6 +64,21 @@
     <Compile Include="Model\ArtistDetail.cs">
       <DependentUpon>YGFL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\AspNetRole.cs">
+      <DependentUpon>YGFL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUser.cs">
+      <DependentUpon>YGFL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserClaim.cs">
+      <DependentUpon>YGFL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AspNetUserLogin.cs">
+      <DependentUpon>YGFL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\C__MigrationHistory.cs">
+      <DependentUpon>YGFL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Disk.cs">
       <DependentUpon>YGFL.tt</DependentUpon>
     </Compile>
@@ -74,9 +89,6 @@
       <DependentUpon>YGFL.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ShowCategory.cs">
-      <DependentUpon>YGFL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>YGFL.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Track.cs">

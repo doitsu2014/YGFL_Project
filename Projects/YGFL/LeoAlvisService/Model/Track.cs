@@ -20,6 +20,7 @@ namespace LeoAlvisService.Model
         public string TrackName { get; set; }
         public Nullable<int> ArtistID { get; set; }
         public string ArtistName { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual Disk Disk { get; set; }
     }
