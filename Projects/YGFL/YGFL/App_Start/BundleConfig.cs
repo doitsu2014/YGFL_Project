@@ -29,7 +29,8 @@ namespace YGFL
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Styles/template-inspinia")
-                .IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true));
+                .IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true)
+                .Include("~/Content/template-admin/inspinia_admin-v2.7.1/font-awesome/css/font-awesome.css"));
 
             bundles.Add(new ScriptBundle("~/Scripts/template-inspinia")
                 .IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/js/", "*.js", true));
