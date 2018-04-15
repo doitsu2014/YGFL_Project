@@ -217,7 +217,8 @@
                 function logout() {
                     $('#logoutForm').on('submit', function (e) {
                         e.preventDefault();
-                        var data = Utils.GetFieldsFromFormData(this);
+                        var data = {};
+                        new Utils().GetFieldsFromFormData(this, data);
                         $.ajax({
                             type: 'POST',
                             url: '@Url.Action("LogOff_Json", "Account", new { area = "" })',

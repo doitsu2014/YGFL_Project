@@ -41,11 +41,11 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form>
+                    <form id="editorForm">
                         <input type="hidden" class="form-control" id="artistId">
                         <div class="form-group">
                             <label for="exampleInputName">Artist's Name</label>
-                            <input type="text" class="form-control" id="exampleInputName" placeholder="Name">
+                            <input type="text" class="form-control" id="exampleInputName" name="ArtistName" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Artist Image</label>
@@ -93,6 +93,16 @@
 </div>
 @section scripts{
 <script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var data = {};
+        new Utils().GetFieldsFromFormData(document.querySelector('#editorForm'), data);
+
+        console.log(data);
+
+    });
+
     $('#data_3 .input-group.date').datepicker({
         startView: 2,
         todayBtn: "linked",
