@@ -82,13 +82,15 @@
                         "bSortable": false,
                         "mRender": function (data, type, row) {
                             var data = row[3];
-
-                            $edit = $('<button/>', {
+                            var artistId = row[0];
+                            var artistName = row[1];
+                            $edit = $('<a/>', {
                                 'title':'Chỉnh sửa',
                                 'class': 'btn btn-w-md btn-primary',
                                 'data-action': 'open-modalCostCategory',
                                 'data-type': 'edit',
                                 'data-id': data,
+                                'href': "@(this.Url.Action("Edit"))/"+ artistId,
                                 'html': '<i class="fa fa-paste"></i> Edit'
 
 
@@ -96,7 +98,7 @@
                            
                             $trash = $('<button/>', {
                                 'class': 'btn btn-w-md btn-danger',
-                                'onclick': 'Delete(' + data + ')',
+                                'onclick': 'Delete(' + artistId + ')',
                                 'html': '<i class="fa fa-trash-o"></i> Delete'
                              });
 
