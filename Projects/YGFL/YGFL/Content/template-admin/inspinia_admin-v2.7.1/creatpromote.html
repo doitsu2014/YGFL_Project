@@ -1,0 +1,1237 @@
+<div class="card">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <form id="createPromotionForm" method="post" enctype="multipart/form-data">
+                    @*<div class="card-header">*@
+                    <div class="ibox-title">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Thêm đợt khuyến mãi mới</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="@Url.Action("IndexPromotion")" class="btn btn-success" id="btn-cancel">Quay lại</a>
+                                <button type="button" onclick="confirmSubmit()" class="btn btn-primary" id="btn-submit">Hoàn tất</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<hr />*@
+                    @*</div>*@
+                    <div class="ibox-content">
+                        <div class="card-padding">
+                            <div class="modal-body hidden">
+                                <input type="hidden" name="GiftType" id="GiftType" />
+                                <input type="hidden" name="ApplyLevel" id="ApplyLevel" />
+                                @*<input type="hidden" name="IsApplyOnce" id="IsApplyOnce" value="true" />*@
+                            </div>
+
+                            @Html.HiddenFor(q => q.ApplyLevel, new { id = "ApplyLevel" })
+                            @Html.HiddenFor(q => q.GiftType, new { id = "GiftType" })
+                            @*@Html.HiddenFor(q => q.IsApplyOnce, new { id = "IsApplyOnce" })*@
+                            <!--Khu vực chọn thông tin chung-->
+                            <div class="col-md-11" id="thong-tin-chung-header">
+                                <h4><i class="fa fa-info-circle" style="color: green"></i> Thông tin chung</h4>
+                            </div>
+                            <div class="col-md-6" style="height: 56px; padding-top: 26px; display: none;" id="switch-discount">
+                                <div class="row group-info">
+                                    <label class="control-label col-md-4">Hình thức giảm giá</label>
+                                    <div class="toggle-switch" data-ts-color="cyan" id="toggle-ispercent">
+                                        <label for="isPercent" class="ts-label">Theo phần trăm</label>
+                                        <input id="isPercent" name="isPercent" type="checkbox" hidden="hidden" value="true" />
+                                        <label class="ts-helper" for="isPercent"></label>
+                                        <label for="isPercent" class="ts-label">Theo tiền mặt</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="row group-info" style="margin-left:-2px; margin-right:-2px;">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <label class="control-label col-md-4" for="Name">Tên khuyến mãi<span style="color:red">*</span></label>
+                                                <div class="col-md-6">
+                                                    @Html.TextBoxFor(q => q.PromotionName, new { id = "PromotionName", @class = "form-control", maxlength = "50",})
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="">
+                                                <label class="control-label col-md-4" for="Name">Mã khuyến mãi<span style="color:red">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="25" name="PromotionCode" id="PromotionCode" class="form-control" required="" value="@Model.PromotionCode">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            @Html.HiddenFor(q => q.ImageCssEnum)
+                                        </div>
+                                        <input type="hidden" id="checkboxHidden" name="@Html.NameFor(q=>q.IsForMember)" value="" />
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="Name">Mô tả<span style="color:red">*</span></label>
+                                            <div class="col-md-6">
+                                                <div class="fg-line" style="width: 100%;">
+                                                    @Html.TextAreaFor(q => q.Description, new { id = "Description", @class = "form-control", style = " height:153px; width: 100%;", maxlength = 100 })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <!--Khu vực cột phải phần thông tin chung-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <label class="control-label col-md-4" for="Name">Nhóm</label>
+                                                <div class="col-md-6">
+                                                    @Html.DropDownListFor(q => q.PromotionType, this.Model.AvailableGroup, new { @class = "txt-editable", @id = "group-chooser", })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <label class="control-label col-md-4" for="Name">Ảnh</label>
+                                                <div class="col-md-4">
+                                                    <button type="button" id="btnUploadImage" class="btn btn-sm btn-success">
+                                                        <i class="icon-upload"></i>Browse
+                                                    </button>
+                                                    <div style="display: none">
+
+                                                        <input type='file' style="" id="imageUpload" data-name="@(this.Html.NameFor(a => a.ImageUrl))" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+                                                    </div>
+
+                                                    <div class="photo-item removeable">
+                                                        <div class="ratio-wrapper ratio-wrapper-1-1" style="width:240px; height:170px; margin-bottom:15px;">
+                                                            <div id="ShowImg" class="ratio-item">
+                                                                <img src="~/Content/images/default_product.jpg" width="240" height="170" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <!--Hết khu vực thông tin chung-->
+                            <div class="col-md-7" id="thong-tin-chung-header">
+                                <h4><i class="fa fa-cog" style="color: deepskyblue"></i> Hình thức khuyến mãi</h4>
+                            </div>
+                            <div id="voucherEdit" class="col-md-5" style="display:none">
+                                <h4><i class="fa fa-edit" style="color: purple"></i> Thông tin voucher</h4>
+                            </div>
+                            <div id="memberPoint" class="col-md-5" style="display:none">
+                                <h4><i class="fa fa-edit" style="color: purple"></i> Chế độ member</h4>
+                            </div>
+                            <div class="form-horizontal row">
+                                <div class="col-md-7">
+                                    <label class="col-md-12 col-md-offset-1" for="Name">
+                                        Loại giảm giá:
+                                    </label>
+                                    <br />
+                                    <div class="group-radio-buttons col-md-12 col-md-offset-1">
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success" style="padding-left:35px;">
+                                            <input type="radio" name="rad2-group" value="0" class="nice-check" id="withPercent" checked />
+                                            <label for="withPercent"><span>Theo phần trăm</span></label>
+                                        </div>
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success">
+                                            <input type="radio" name="rad2-group" value="2" class="nice-check" id="withMoney" />
+                                            <label for="withMoney"><span>Theo tiền mặt</span></label>
+                                        </div>
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success">
+                                            <input type="radio" name="rad2-group" value="1" class="nice-check" id="withGift" />
+                                            <label for="withGift"><span>Tặng quà</span></label>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <label class="col-md-12 col-md-offset-1" for="Name">
+                                        Mức độ:
+                                    </label>
+                                    <br />
+                                    <div class="group-radio-buttons col-md-12 col-md-offset-1">
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success" style="padding-left:35px;">
+                                            <input type="radio" name="rad1-group" value="0" class="nice-check" id="forBill" checked />
+                                            <label for="forBill"><span>Cho hóa đơn</span></label>
+                                        </div>
+                                        <div class="col-md-8 medium-radio-button-width radio radio-success">
+                                            <input type="radio" name="rad1-group" value="1" class="nice-check" id="forProduct" />
+                                            <label for="forProduct"><span>Cho sản phẩm</span></label>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <label class="col-md-12 col-md-offset-1" for="Name">Dạng: </label>
+                                    <br />
+                                    <div class="group-radio-buttons col-md-12 col-md-offset-1">
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success" style="padding-left:35px;">
+                                            <input type="radio" name="rad3-group" value="0" class="nice-check" id="radNone" checked />
+                                            <label for="radNone"><span>Chương trình</span></label>
+                                        </div>
+                                        <div class="col-md-8 medium-radio-button-width radio radio-success">
+                                            <input type="radio" name="rad3-group" value="1" class="nice-check" id="radVoucher" />
+                                            <label for="radVoucher"><span>Voucher</span></label>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <label class="col-md-12 col-md-offset-1"for="Name">Dành cho: </label>
+                                    <br />
+                                    <div class="group-radio-buttons col-md-12 col-md-offset-1">
+                                        <div class="col-md-4 medium-radio-button-width radio radio-success" style="padding-left:35px;">
+                                            <input type="radio" name="rad4-group" value="0" class="nice-check" id="radEve" checked />
+                                            <label for="radEve"><span>Cho mọi người</span></label>
+                                        </div>
+                                        <div class="col-md-8 medium-radio-button-width radio radio-success">
+                                            <input type="radio" name="rad4-group" value="1" class="nice-check" id="radMem" />
+                                            <label for="radMem"><span>Cho member</span></label>
+                                        </div>
+                                    </div>
+                                    <label></label>
+                                    <div></div>
+                                    @Html.HiddenFor(q => q.IsVoucher, new { value = "" })
+                                    @Html.HiddenFor(q => q.UsingPoint, new { value = "" })
+                                </div>
+                                <div class="col-md-5">
+                                    <div id="collapse1" style="display:none">
+                                        <div class="panel-title"></div>
+                                        <div class="panel-body">
+                                            <div class="form-group" id="voucher-quantity">
+                                                <label style="font-weight:bold" class="col-md-4" for="Name">Số lượng<span style="color:red">*</span></label>
+                                                <div class="col-md-6">
+                                                    <input type="number" name="VoucherQuantity" id="VoucherQuantity" class="form-control"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row" id="voucher-type">
+                                                <label style="font-weight:bold" class="col-md-4" for="Name">Hình thức</label>
+                                                @*<div class="toggle-switch col-md-8" data-ts-color="cyan" id="toggle-isone">
+                                                    <label for="is-apply-once" class="ts-label"> Nhiều code  </label>
+                                                    <input id="is-apply-once" name="is-apply-once" type="checkbox" hidden="hidden" value="true" />
+                                                    <label class="ts-helper" for="is-apply-once"></label>
+                                                    <label for="is-apply-once" class="ts-label"> Một code</label>
+                                                </div>*@
+                                                <div class="switch col-md-8" style="padding-top: 0px;">
+                                                    <label for="is-apply-once" class="col-md-4"> Nhiều code  </label>
+                                                    <div class="col-md-4">
+                                                        <div class="onoffswitch" id="toggle-isone">
+                                                            <input type="checkbox" class="onoffswitch-checkbox" id="is-apply-once">
+                                                            <label class="onoffswitch-label" for="is-apply-once">
+                                                                <span class="onoffswitch-inner"></span>
+                                                                <span class="onoffswitch-switch"></span>
+                                                            </label>
+                                                        </div>
+                                                        </div>
+                                                        <label for="is-apply-once" class="col-md-4"> Một code</label>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="collapse2" style="display:none">
+                                        <div class="panel-title"></div>
+                                        <div class="panel-body">
+                                            <div class="form-group row" id="voucher-type">
+                                                
+                                                @*<div class="toggle-switch col-md-6" data-ts-color="cyan" id="toggle-ispoint">
+                                                    <input id="is-apply-ispoint" name="is-apply-ispoint" type="checkbox" hidden="hidden" value="true" />
+                                                    <label class="ts-helper" for="is-apply-ispoint"></label>
+                                                </div>*@
+                                                
+                                                    <label style="font-weight:bold" class="col-md-4" for="Name">Sử dụng điểm tích lũy</label>
+                                                <div class="switch col-md-8" style="padding-top: 0px;">
+                                                    <div class="onoffswitch" id="toggle-ispoint">
+                                                        <input type="checkbox" class="onoffswitch-checkbox" id="is-apply-ispoint">
+                                                        <label class="onoffswitch-label" for="is-apply-ispoint">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr />
+                            <!--Khu vực chọn thời gian-->
+                            <div class="col-md-11" id="thong-tin-chung-header">
+                                <h4><i class="fa fa-clock-o" style="color: orange"></i> Thời gian áp dụng</h4>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="row group-info m-r-0 m-l-0">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="fg-line">
+                                                <label class="col-md-2 control-label">Thời gian</label>
+                                                <div class="col-md-2">
+                                                    <select class="fg-line form-control chosen-select" id="cbx-time-type">
+                                                        <option value="0">Thời gian có hạn</option>
+                                                        <option value="1">Thời gian vô hạn</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 dateTime">
+                                                    @*<div class="dateTime">
+                                                            <div class="fg-line m-t-5">
+                                                                <input id="date-string" readonly class="form-control pull-right text-center" ss>
+                                                                <a class="myCelenderA" id="reportrange"><i class="fa fa-calendar"></i></a>
+                                                            </div>
+                                                        </div>*@
+                                                    <div class="fg-line m-t-5" style="position: relative">
+                                                        <div id="reportrange" class="height-fix">
+                                                            <i class="fa fa-calendar myCelenderB"></i>
+                                                            <span></span>
+                                                            <input id="date-string" size="30" class="form-control text-center pull-right">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                @Html.HiddenFor(q => q.FromDateStr, new { id = "FromDateStr" })
+                                                @Html.HiddenFor(q => q.ToDateStr, new { id = "ToDateStr" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="Name">Khung giờ áp dụng</label>
+                                            <div class="col-md-6">
+                                                <div class="col-md-1 no-p-l" style="margin-top:9px; width: 21px"><span>Từ</span></div>
+                                                <div class="col-md-3">
+                                                    <div class="fg-line" style="margin-top: 4px;">
+                                                        <select class="chosen-select" name="FromTime" style="width:65px;">
+                                                            @for (int i = 0; i < 24; i++)
+                                                            {
+                                                                <option value="@i">@i</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 col-md-offset-1" style="margin-top:9px; width: 42px"><span>Đến</span></div>
+                                                <div class="col-md-3 no-p-r">
+                                                    <div class="fg-line" style="margin-top: 4px;">
+                                                        <select class="chosen-select" name="ToTime" style="width:65px;">
+                                                            @for (int i = 0; i < 24; i++)
+                                                            {
+                                                                if (i == 24)
+                                                                {
+                                                                    <option value="@i" selected>@i</option>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <option value="@i">@i</option>
+                                                                }
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    @Html.HiddenFor(q => q.ApplyFromTime)
+                                                    @Html.HiddenFor(q => q.ApplyToTime)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Hết khu vực chọn thời gian-->
+                            <hr />
+                            <!--Khu vực chọn cửa hàng-->
+                            <div class="form-horizontal">
+                                <div class="row group-info m-r-0 m-l-0">
+                                    <div class="col-md-12" style="margin-left:-2px; margin-right:-2px;">
+                                        <h4><i class="fa fa-home" style="color: darkmagenta"></i> Cửa hàng áp dụng</h4>
+                                        <div class="col-md-12">
+                                        <button type="button" id="btn-apply-all-store" class="btn btn-primary" onclick="ApplyAll();"><span id="check-btn">Chọn tất cả</span></button>
+                                        </div>
+                                        <div class="col-md-12 group-info " id="store-chooser">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Hết khu vực chọn cửa hàng-->
+                            <hr />
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!--
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Thêm đợt khuyến mãi mới</h5>
+                    <div class="ibox-tools">
+                        <a href="@Url.Action("IndexPromotion")" class="btn btn-success myComeback" id="btn-cancel">Quay lại</a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <h2>
+                        Điền mẫu thông tin khuyến mãi
+                    </h2>
+                    <div class="modal-body hidden">
+                        <input type="hidden" name="GiftType" id="GiftType" />
+                        <input type="hidden" name="ApplyLevel" id="ApplyLevel" />
+                    </div>
+
+                    @Html.HiddenFor(q => q.ApplyLevel, new { id = "ApplyLevel" })
+                    @Html.HiddenFor(q => q.GiftType, new { id = "GiftType" })
+                    <form id="form" action="#" class="wizard-big">
+                        <div class="col-md-6" style="height: 56px; padding-top: 26px; display: none;" id="switch-discount">
+                            <div class="row group-info">
+                                <label class="control-label col-md-4">Hình thức giảm giá</label>
+                                <div class="toggle-switch" data-ts-color="cyan" id="toggle-ispercent">
+                                    <label for="isPercent" class="ts-label">Theo phần trăm</label>
+                                    <input id="isPercent" name="isPercent" type="checkbox" hidden="hidden" value="true" />
+                                    <label class="ts-helper" for="isPercent"></label>
+                                    <label for="isPercent" class="ts-label">Theo tiền mặt</label>
+                                </div>
+                            </div>
+                        </div>
+                        <h1>Thông tin chung</h1>
+                        <fieldset>
+                            <h2>Thông tin khuyến mãi</h2>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>Tên khuyến mãi *</label>
+                                        @Html.TextBoxFor(q => q.PromotionName, new { id = "PromotionName", @class = "form-control", maxlength = "50", })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mã khuyến mãi *</label>
+                                        <input type="text" maxlength="25" name="PromotionCode" id="PromotionCode" class="form-control" required="" value="@Model.PromotionCode">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mô tả *</label>
+                                        @Html.TextAreaFor(q => q.Description, new { id = "Description", @class = "form-control", style = " height:153px; width: 100%;", maxlength = 100 })
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Ảnh</label>
+                                        <div class="col-md-12">
+                                            <button type="button" id="btnUploadImage" class="btn btn-sm btn-success">
+                                                <i class="icon-upload"></i>Browse
+                                            </button>
+                                            <div style="display: none">
+
+                                                <input type='file' style="" id="imageUpload" data-name="@(this.Html.NameFor(a => a.ImageUrl))" accept="image/gif, image/jpeg, image/png" onchange="readURL(this);" />
+                                            </div>
+
+                                            <div class="photo-item removeable">
+                                                <div class="ratio-wrapper ratio-wrapper-1-1" style="width:240px; height:170px; margin-bottom:15px;">
+                                                    <div id="ShowImg" class="ratio-item">
+                                                        <img src="~/Content/images/default_product.jpg" width="240" height="170" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <h1>Điều kiện áp dụng</h1>
+                        <fieldset>
+                            <h2>Profile Information</h2>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>First name *</label>
+                                        <input id="name" name="name" type="text" class="form-control required">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Last name *</label>
+                                        <input id="surname" name="surname" type="text" class="form-control required">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Email *</label>
+                                        <input id="email" name="email" type="text" class="form-control required email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address *</label>
+                                        <input id="address" name="address" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>Hình thức khuyến mãi</h1>
+                        <fieldset>
+                            <div class="text-center" style="margin-top: 120px">
+                                <h2>You did it Man :-)</h2>
+                            </div>
+                        </fieldset>
+
+                        <h1>Finish</h1>
+                        <fieldset>
+                            <h2>Terms and Conditions</h2>
+                            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+-->
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Thêm đợt khuyến mãi mới</h5>
+                <div class="ibox-tools">
+                    <a href="@Url.Action("IndexPromotion")" class="btn btn-success myComeback" id="btn-cancel">Quay lại</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tab-1"> Thông tin chung</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-2" id="detailConfig">Chi tiết</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+                                    
+                                    </div>
+                                </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <div class="panel-body">
+                                        <form id="detail" action="#" class="wizard-big">
+                                            <h1>Cấu hình loại khuyến mãi</h1>
+                                            <fieldset>
+                                                <h2>Dạng khuyến mãi</h2>
+                                                <div class="row">
+
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <div id="voucherEdit" class="col-md-5" style="display:none">
+                                                                <h4><i class="fa fa-edit" style="color: purple"></i> Thông tin voucher</h4>
+                                                            </div>
+
+                                                            <div id="collapse1" style="display:none">
+                                                                <div class="col-md-12">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group" id="voucher-quantity">
+                                                                            <div class="col-md-12">
+                                                                                <label for="Name">Số lượng voucher áp dụng trong kỳ khuyến mãi này *:</label>
+                                                                            </div>
+                                                                            <div class="">
+                                                                                <div class="col-md-6">
+                                                                                    <input type="number" name="VoucherQuantity" id="VoucherQuantity" class="form-control" />
+                                                                                </div>
+                                                                                @*<div class="group-radio-buttons col-md-4 col-md-offset-2">
+                                                                                        <div class="col-md-12 medium-radio-button-width radio radio-success">
+                                                                                            <input type="radio" name="quantity-group" value="0" class="nice-check" id="unlimited" />
+                                                                                            <label for="unlimited"><span>Không giới hạn</span></label>
+                                                                                        </div>
+                                                                                    </div>*@
+                                                                                <div class="checkbox checkbox-success col-md-4 col-md-offset-2">
+                                                                                    <div class="col-md-12">
+                                                                                        <input id="unlimited" type="checkbox">
+                                                                                        <label for="unlimited">Không giới hạn</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group" id="voucher-type">
+                                                                            <div class="col-md-12">
+                                                                                <label for="Name">Code áp dụng cho khuyến mãi:</label>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="switch col-md-8">
+                                                                                    <label for="is-apply-once" class="col-md-4"> Nhiều code</label>
+                                                                                    <div class="col-md-6 col-md-offset-2">
+                                                                                        <div class="onoffswitch" id="toggle-isone">
+                                                                                            <input type="checkbox" class="onoffswitch-checkbox" id="is-apply-once">
+                                                                                            <label class="onoffswitch-label" for="is-apply-once">
+                                                                                                <span class="onoffswitch-inner"></span>
+                                                                                                <span class="onoffswitch-switch"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <label for="is-apply-once" class="col-md-4"> Một code</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div id="memberPoint" class="col-md-5" style="display:none">
+                                                                <h4><i class="fa fa-edit" style="color: purple"></i> Chế độ member</h4>
+                                                            </div>
+                                                            <div id="collapse2" style="display:none">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group" id="voucher-type">
+                                                                        <div class="col-md-8">
+                                                                            <div class="switch col-md-12">
+                                                                                <div class="col-md-3">
+                                                                                    <label for="Name">Sử dụng điểm tích lũy: </label>
+                                                                                </div>
+                                                                                <div class="col-md-3 col-md-offset-3">
+                                                                                    <div class="onoffswitch" id="toggle-ispoint">
+                                                                                        <input type="checkbox" class="onoffswitch-checkbox" id="is-apply-ispoint">
+                                                                                        <label class="onoffswitch-label" for="is-apply-ispoint">
+                                                                                            <span class="onoffswitch-inner"></span>
+                                                                                            <span class="onoffswitch-switch"></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <h1>Cấu hình thời gian</h1>
+                                            <fieldset>
+                                                <h2>Thời gian áp dụng</h2>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="fg-line">
+                                                                <label>Thời gian</label>
+                                                                <div class="col-md-12">
+                                                                    <div class="col-md-6">
+                                                                        <select class="fg-line form-control chosen-select" id="cbx-time-type">
+                                                                            <option value="0">Thời gian có hạn</option>
+                                                                            <option value="1">Thời gian vô hạn</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6 dateTime">
+                                                                        <div class="fg-line m-t-5" style="position: relative">
+                                                                            <div id="reportrange" class="height-fix">
+                                                                                <i class="fa fa-calendar myCelenderB"></i>
+                                                                                <span></span>
+                                                                                <input id="date-string" size="30" class="form-control text-center pull-right">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                @Html.HiddenFor(q => q.FromDateStr, new { id = "FromDateStr" })
+                                                                @Html.HiddenFor(q => q.ToDateStr, new { id = "ToDateStr" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="Name" style="margin-top: 10px;">Khung giờ áp dụng</label>
+                                                            <div class="col-md-12">
+                                                                <label class="col-md-6">Từ</label>
+                                                                <label class="col-md-6">Đến</label>
+                                                                <div class="col-md-6">
+                                                                    @*<div class="fg-line" style="margin-top: 4px;">
+                                                                            <select class="chosen-select" name="FromTime" style="width:65px;">
+                                                                                @for (int i = 0; i < 24; i++)
+                                                                                {
+                                                                                    <option value="@i">@i</option>
+                                                                                }
+                                                                            </select>
+                                                                        </div>*@
+                                                                    <div class="input-group clockpicker" data-autoclose="true">
+                                                                        <input type="text" class="form-control" name="FromTime">
+                                                                        <span class="input-group-addon">
+                                                                            <span class="fa fa-clock-o"></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="col-md-6">
+                                                                    @*<div class="fg-line" style="margin-top: 4px;">
+                                                                            <select class="chosen-select" name="ToTime" style="width:65px;">
+                                                                                @for (int i = 0; i < 24; i++)
+                                                                                {
+                                                                                    if (i == 24)
+                                                                                    {
+                                                                                        <option value="@i" selected>@i</option>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <option value="@i">@i</option>
+                                                                                    }
+                                                                                }
+                                                                            </select>
+                                                                        </div>*@
+                                                                    <div class="input-group clockpicker" data-autoclose="true">
+                                                                        <input type="text" class="form-control" name="ToTime">
+                                                                        <span class="input-group-addon">
+                                                                            <span class="fa fa-clock-o"></span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    @Html.HiddenFor(q => q.ApplyFromTime)
+                                                                    @Html.HiddenFor(q => q.ApplyToTime)
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            @*<h1>Hình thức áp dụng</h1>
+                                                <fieldset>
+                                                    <h2>Hình thức khuyến mãi</h2>
+                                                    <div class="row">
+
+                                                    </div>
+                                                </fieldset>
+
+
+                                                <h1>Khu vực áp dụng</h1>
+                                                <fieldset>
+                                                    <h2>Cửa hàng áp dụng khuyến mãi</h2>
+                                                    <div class="row">
+
+                                                    </div>
+                                                </fieldset>*@
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        //$('div[id="toggle-isone"]').on("change", function () {
+        //    $('input[id="IsApplyOnce"]').val($('input[id="IsApplyOnce"]').val() == "false");
+        //})
+
+        // Lấy danh sách cửa hàng theo brandId
+        $.ajax({
+            url: '@Url.Action("GetStoreList")',
+            success: function (result) {
+                if (result.success) {
+                    showStoreCheckbox(result.aaData);
+                }
+            }
+        });
+        $("#form").steps({
+            bodyTag: "fieldset",
+            labels: { /*cancel: "Cancel", current: "current step:", pagination: "Pagination", loading: "Loading ...",*/ finish: "Hoàn tất", next: "Tiếp", previous: "Trước" },
+
+            onStepChanging: function (event, currentIndex, newIndex) {
+                if (currentIndex > newIndex) {
+                    return true;
+                }
+                if (newIndex === 3 && Number($("#age").val()) < 18) {
+                    return false;
+                }
+
+                var form = $(this);
+                if (currentIndex < newIndex) {
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                }
+                form.validate().settings.ignore = ":disabled,:hidden";
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                    $(this).steps("next");
+                }
+                if (currentIndex === 2 && priorIndex === 3 & priorIndex === 4) {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex) {
+                //var form = $(this);
+                //form.validate().settings.ignore = ":disabled";
+                confirmSubmit();
+                //return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+                var form = $(this);
+                form.submit();
+            }
+        }).validate({
+            errorPlacement: function (error, element) {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                }
+            }
+            });
+        $('#isthisVoucher').click(function () {
+            if ($('#isthisVoucher:checked').length > 0) {
+                $('#voucher-type').removeClass('voucher');
+                $('#voucher-quantity').removeClass('voucher');
+            }
+            else {
+                $('#voucher-type').addClass('voucher');
+                $('#voucher-quantity').addClass('voucher');
+            }
+
+        });
+        $.validator.messages.required = "Thông tin này không được bỏ trống!";
+        $('#unlimited').click(function () {
+            if ($("#unlimited").is(":checked")) {
+                $('#VoucherQuantity').attr('readonly', true);
+
+            } else if (!$("#unlimited").is(":checked")) {
+                $('#VoucherQuantity').removeAttr('readonly');
+            }
+        });
+
+        $('#radMem').click(function () {
+            $('#collapse2').slideDown('slow');
+            $('#memberPoint').slideDown('slow');
+        });
+        $('#radEve').click(function () {
+            $('#collapse2').slideUp('slow');
+            $('#memberPoint').slideUp('slow');
+        });
+        $('#radNone').click(function () {
+            $('#collapse1').slideUp('slow');
+            $('#voucherEdit').slideUp('slow');
+        });
+        $('#agency').click(function () {
+            $('#nameAgen').slideDown('slow');
+        });
+        $('#internal').click(function () {
+            $('#nameAgen').slideUp('slow');
+        });
+        $('#radVoucher').click(function () {
+            //$('#collapse1').slideDown('slow');
+            //$('#voucherEdit').slideDown('slow');
+            if ($("#radVoucher").is(":checked")) {
+                $('#providerVoucher').slideDown('slow');
+
+            } else if (!$("#radVoucher").is(":checked")) {
+                $('#providerVoucher').slideUp('slow');
+                $('#nameAgen').slideUp('slow');
+                $('#agency').prop("checked", false);
+                $('#internal').prop("checked", false);
+            }
+        });
+
+        $('.select2-arrow').html('<i class="fa fa-clock-o"></i>');
+        $('.chosen-select').select2();
+
+        //$('#btn-submit').fixedScroll(70);
+        //$('#btn-cancel').scrollToFixed(70);
+        //$('#btn-submit').fixedScroll(70);
+        cb(moment(), moment("2100/12/31", "YYYY/MM/DD"), "");
+        generateDateRangePicker();
+
+
+        $('select[name=ToTime]').select2();
+        $('select[name=FromTime]').select2();
+        $('#storeSelect').select2();
+        $('#ApplyLevel').val("");
+        $('#GiftType').val("");
+
+        $("#group-chooser").select2({});
+
+        $('#switch-discount').css('display', 'none');
+        $('#thong-tin-chung-header').removeClass('col-md-6').addClass('col-md-11');
+
+        $('div[class="toggle-switch"][id="toggle-ispercent"]').on("change", function () {
+            $('input[id="isPercent"]').val($('input[id="isPercent"]').val() == "false");
+        })
+        $('#cbx-time-type').change(function () {
+            if ($(this).val() == "0") {
+                generateDateRangePicker();
+            } else {
+                generateDatePicker();
+            }
+        });
+        function generateDateRangePicker() {
+            $('#reportrange').daterangepicker({
+                ranges: {
+                    'Tuần này': [moment().add(0, 'week').startOf('isoweek'), moment().add(0, 'week').endOf('isoweek')],
+                    'Tuần trước': [moment().add(-1, 'week').startOf('isoweek'), moment().add(-1, 'week').endOf('isoweek')],
+                    'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+                    'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    "applyLabel": "Chọn",
+                    "cancelLabel": "Hủy",
+                    "fromLabel": "Từ",
+                    "toLabel": "Đến",
+                    "customRangeLabel": "Tùy chọn",
+                    "daysOfWeek": [
+                        "CN",
+                        "T2",
+                        "T3",
+                        "T4",
+                        "T5",
+                        "T6",
+                        "T7"
+                    ],
+                    "monthNames": [
+                        "Tháng 1",
+                        "Tháng 2",
+                        "Tháng 3",
+                        "Tháng 4",
+                        "Tháng 5",
+                        "Tháng 6",
+                        "Tháng 7",
+                        "Tháng 8",
+                        "Tháng 9",
+                        "Tháng 10",
+                        "Tháng 11",
+                        "Tháng 12"
+                    ],
+                },
+                "opens": "left",
+                "minDate": moment(),
+                "maxDate": '31/12/2100',
+            }, cb);
+        }
+
+        function generateDatePicker() {
+            $('#reportrange').daterangepicker({
+                "opens": "left",
+                "minDate": moment(),
+                "maxDate": '31/12/2100',
+                "singleDatePicker": true,
+                locale: {
+                    "daysOfWeek": [
+                        "CN",
+                        "T2",
+                        "T3",
+                        "T4",
+                        "T5",
+                        "T6",
+                        "T7"
+                    ],
+                    "monthNames": [
+                        "Tháng 1",
+                        "Tháng 2",
+                        "Tháng 3",
+                        "Tháng 4",
+                        "Tháng 5",
+                        "Tháng 6",
+                        "Tháng 7",
+                        "Tháng 8",
+                        "Tháng 9",
+                        "Tháng 10",
+                        "Tháng 11",
+                        "Tháng 12"
+                    ],
+                    format: 'DD/MM/YYYY'
+                },
+            }, cb2);
+        }
+
+        function cb(start, end, label) {
+            var startTime = start.format("DD/MM/YYYY"),
+                endTime = end.format("DD/MM/YYYY"),
+                dateString = "(" + startTime + (startTime == endTime ? "" : " - " + endTime) + ")";
+
+            $("#date-string").val(dateString);
+
+            $("#FromDateStr").val(startTime);
+            $("#ToDateStr").val(endTime);
+            $("#dateRange").html(dateString);
+        };
+
+        function cb2(start, end, label) {
+            var startTime = start.format("DD/MM/YYYY"),
+                endTime = "31/12/2100",
+                dateString = "(" + startTime + " - vô hạn" + ")";
+
+            $("#date-string").val(dateString);
+
+            $("#FromDateStr").val(startTime);
+            $("#ToDateStr").val(endTime);
+            $("#dateRange").html(dateString);
+        }
+        $('.clockpicker').clockpicker();
+        $('[data-toggle="popover"]').popover();
+        $('#btnUploadImage').click(function () {
+            $('#imageUpload').click();
+
+        });
+        });
+
+
+    //$('#date-string').click(function () {
+    //    $('#reportrange').click();
+    //})
+    //Hết khu vực sinh daterangepicker
+
+
+    //đọc ảnh
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var exType = input.files[0].type;
+            if (exType != "image/gif" && exType != "image/png" && exType != "image/jpeg") {
+
+                ShowMessageDucTH.ShowMessage("Có lỗi xảy ra!",
+                    '',
+                    ShowMessageDucTH.Type.Error,
+                    ShowMessageDucTH.Position.TopRight);
+                return;
+            }
+            sendFile(input.files[0]);
+        }
+    }
+
+    function sendFile(file) {
+        var formData = new FormData();
+        formData.append('file', file);
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UploadImage", "File", new { area = "Admin" })',
+            data: formData,
+            success: function (result) {
+                if (result.success) {
+                    var htmlInnerData = '<img width="240" height="170" src="' + result.imageUrl + '"/>'
+                                + '<input type="hidden" name="ImageUrl" value="' + result.imageUrl + '"/>'
+                                + '<span class="btn-remove" onclick="delImg()"><i class="glyphicon glyphicon-remove"></i></span>';
+
+                    $("#ShowImg").html(htmlInnerData);
+                }
+            },
+            processData: false,
+            contentType: false,
+            error: function () {
+
+                ShowMessageDucTH.ShowMessage("Có lỗi xảy ra!",
+                    '',
+                    ShowMessageDucTH.Type.Error,
+                    ShowMessageDucTH.Position.TopRight);
+            }
+        });
+    }
+
+    //xóa ảnh
+    function delImg() {
+        $("#ShowImg").html("");
+        $("#imageUpload").val("");
+        $("#currentVoucherImg").val("");
+    }
+
+
+    // Show all store
+    function showStoreCheckbox(store) {
+        var s = "";
+        for (var i = 0; i < store.length; i++) {
+            if (i % Math.round(store.length / 4) == 0) {
+                if (i != 0) {
+                    s += "</div>";
+                }
+                s += '<div class="col-md-2">';
+            }
+            s += '<div class=" col-md-12 checkbox checkbox-success checkbox-inline">'
+                + '<input type="checkbox" name="apply-store" id="apply-store" value="'
+                + store[i][2]
+                + '"/>'
+
+                + '<label>' + store[i][1]+'</label></div>';
+        }
+        $('#store-chooser').html('');
+        $('#store-chooser').html(s);
+    }
+
+    //Áp dụng tất cả cửa hàng
+    function ApplyAll() {
+        if ($('input[id="apply-store"]:checked').length < $('input[id="apply-store"]').length) {
+            $('input[id="apply-store"]').each(function () {
+                $('#check-btn').html('Bỏ chọn');
+                $(this).prop('checked', true);
+            });
+        } else {
+            $('input[id="apply-store"]').each(function () {
+                $('#check-btn').html('Chọn tất cả');
+                $(this).prop('checked', false);
+            });
+        }
+    }
+
+    $('.dataTables_scrollBody').css('height', '200px');
+
+    function loadIcon() {
+        $(".iconoption option").each(function () {
+            var note = $(this).text();
+            $(this).html($(this).text());
+        });
+    }
+
+    function confirmSubmit() {
+        $('#ApplyLevel').val($('input[name=rad1-group]:checked').val());
+        $('#GiftType').val($('input[name=rad2-group]:checked').val());
+        if ($('input[name=rad4-group]:checked').val() == 1) {
+            $('#checkboxHidden').val(true);
+        }
+        if ($('input[name=rad4-group]:checked').val() == 0) {
+            $('#checkboxHidden').val(false);
+        }
+
+        // check "Nhóm" for promotion infor
+        //var promoGroup = $('#group-chooser').val();
+        var promoGroup = $('input[name=PromotionType]:checked').val();
+        if (!((promoGroup == 0) || (promoGroup == 1) || (promoGroup == 2) || (promoGroup == 3))) {
+
+            ShowMessageDucTH.ShowMessage("Chưa có nhóm khuyến mãi.",
+                'Vui lòng tạo nhóm khuyến mãi',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+        }
+        else if ($('#radVoucher:checked').length > 0 && $('#VoucherQuantity').val() == "") {
+
+            ShowMessageDucTH.ShowMessage("Vui lòng nhập số lượng Voucher",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($('#radVoucher:checked').length > 0 && parseInt($('#VoucherQuantity').val()) <= 0) {
+
+            ShowMessageDucTH.ShowMessage("Vui lòng nhập số lượng Voucher lớn hơn 0",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($('#ApplyLevel').val() == "" || $('#GiftType').val() == "") {
+            ShowMessageDucTH.ShowMessage("Vui lòng chọn hình thức khuyến mãi",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($("input[name='PromotionCode']").val() == "") {
+            ShowMessageDucTH.ShowMessage("Vui lòng nhập mã khuyến mãi.",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($("input[name='PromotionCode']").val().trim().indexOf(" ") != -1) {
+            ShowMessageDucTH.ShowMessage("Mã khuyến mãi không được có dấu cách",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($("input[name='PromotionName']").val() == "") {
+            ShowMessageDucTH.ShowMessage("Vui lòng nhập tên khuyến mãi.",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if ($("textarea[name='Description']").val() == "") {
+            ShowMessageDucTH.ShowMessage("Vui lòng nhập mô tả.",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else if (parseInt($('input[name = ToTime]').val()) <= parseInt($('input[name = FromTime]').val())) {
+            ShowMessageDucTH.ShowMessage("Khung giờ áp dụng không hợp lệ",
+                '',
+                ShowMessageDucTH.Type.Error,
+                ShowMessageDucTH.Position.TopRight);
+            return;
+        }
+        else {
+            $('#ApplyFromTime').val($('select[name=FromTime]').val());
+            $('#ApplyToTime').val($('select[name=ToTime]').val());
+            $('#FromDateStr').val();
+            $('#ToDateStr').val();
+            createPromotion();
+        }
+    }
+
+    function createPromotion() {
+        //if ($('#radVoucher').is(':checked'))
+        //    $('#IsVoucher').val('true')
+        //else
+        //    $('#IsVoucher').val('false')
+
+        $('#IsVoucher').val($('#radVoucher').prop('checked'));
+        $('#UsingPoint').val($("#is-apply-ispoint").prop('checked'));
+
+        var storeArray = new Array();
+        for (var i = 0; i < $('input[id=apply-store]:checked').length; i++) {
+            storeArray.push($($('input[id=apply-store]:checked')[i]).val());
+        }
+        if ($('#GiftType').val() == 0) {
+            if ($('#isPercent').val() == "false") {
+                $('#GiftType').val(2);
+            }
+        }
+
+        var formData = new FormData($('#createPromotionForm')[0]);
+        formData.append('date', $('#date-string')[0]);
+        formData.append('isOneVoucher', $('#is-apply-once').prop('checked'));
+        for (var i = 0; i < storeArray.length; i++) {
+            formData.append('storeArray[]', storeArray[i]);
+        }
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("CreatePromotion")',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                if (result.success) {
+                    @*ShowAlert("Tạo khuyến mãi thành công", 2, '@Url.Action("IndexDetail", "PromotionDetail")/' + result.promotionId);*@
+                    ShowSweetAlertDucTH.CallAlert("Tạo khuyến mãi thành công", "", () => { window.location.href = '@Url.Action("IndexDetail", "PromotionDetail")/' + result.promotionId}, ShowSweetAlertDucTH.TypeSweetAlertEnum.Success);
+                }
+                else {
+                    ShowMessageDucTH.ShowMessage(result.message,
+                        '',
+                        ShowMessageDucTH.Type.Error,
+                        ShowMessageDucTH.Position.TopRight);
+                }
+            },
+        });
+    }
+
+
+    </script>
+}

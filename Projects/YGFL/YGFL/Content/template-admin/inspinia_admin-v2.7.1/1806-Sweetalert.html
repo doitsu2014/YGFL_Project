@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/sweetalert.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Dec 2017 03:39:35 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Sweetalert</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Sweet Alert -->
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+    
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        
+            
+
+        </nav>
+        </div>
+            
+            <div class="wrapper wrapper-content  animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                           
+
+                            <div class="ibox-content">
+
+                                
+
+                                <div class="row text-center">
+
+                                    <div class="col-lg-6 h-100 p-lg">
+                                        <p>A basic sweetalert message</p>
+                                        <button class="btn btn-primary btn-sm demo1">Run example</button>
+                                    </div>
+                                    <div class="col-lg-6 h-100 p-lg">
+                                        <p> A success message! </p>
+                                        <button class="btn btn-success btn-sm demo2">Run example</button>
+                                    </div>
+                                    <div class="col-lg-6 h-100 p-lg">
+                                        <p>A warning message, with a function attached to the "Confirm"-button...</p>
+                                        <button class="btn btn-warning btn-sm demo3">Run example</button>
+                                    </div>
+                                    <div class="col-lg-6 h-100 p-lg">
+                                        <p> ... and by passing a parameter, you can execute something else for "Cancel". </p>
+                                        <button class="btn btn-danger btn-sm demo4">Run example</button>
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <div class="m-t-md">
+                                    <p>
+                                        You can easy add sweet alert in your script by adding code (example from warning button):
+                                    </p>
+                    <pre>
+$('.demo3').click(function () {
+    swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover this imaginary file!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false
+    }, function () {
+        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    });
+});</pre>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+        </div>
+        </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Sweet alert -->
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+
+<script>
+
+//   $(document).ready(function () {
+////
+//////        $('.demo1').click(function(){
+//////          
+//////        });
+////
+////        $('.demo2').click(function(){
+////            swal({
+////                title: "Good job!",
+////                text: "You clicked the button!",
+////                type: "success"
+////            });
+////        });
+////
+//        $('.demo3').click(function () {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            });
+//        });
+//
+//        $('.demo4').click(function () {
+//            swal({
+//                        title: "Are you sure?",
+//                        text: "Your will not be able to recover this imaginary file!",
+//                        type: "warning",
+//                        showCancelButton: true,
+//                        confirmButtonColor: "#DD6B55",
+//                        confirmButtonText: "Yes, delete it!",
+//                        cancelButtonText: "No, cancel plx!",
+//                        closeOnConfirm: false,
+//                        closeOnCancel: false },
+//                    function (isConfirm) {
+//                        if (isConfirm) {
+//                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+//                        } else {
+//                            swal("Cancelled", "Your imaginary file is safe :)", "error");
+//                        }
+//                    });
+//        });
+//
+//
+//    });
+     var typeSweetAlertEnum = {
+                          Success: "success",
+                          Warning: "warning",
+                          NoType: "no",
+                        };
+    
+    function showSweetAlert(title, text, type = typeSweetAlertEnum.Success){
+        if(type==typeSweetAlertEnum.NoType){
+              swal({
+                title: title,
+                text: text
+            });
+        }
+        else if(type==typeSweetAlertEnum.Success){
+              swal({
+                title: title,
+                text: text,
+                type: "success"
+            });
+        }
+        else if(type==typeSweetAlertEnum.Warning){
+           swal({
+                title: title,
+                text: text,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false
+            }, function () {
+                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            });
+         }
+        }
+        
+        $('.demo1').click(function () {           
+            showSweetAlert('Email','Input your wrong username', type = typeSweetAlertEnum.Success);
+        })
+
+</script>
+
+
+</body>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/sweetalert.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Dec 2017 03:39:36 GMT -->
+</html>
