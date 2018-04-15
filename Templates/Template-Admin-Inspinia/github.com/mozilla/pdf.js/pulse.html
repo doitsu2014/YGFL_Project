@@ -1,0 +1,936 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from github.com/mozilla/pdf.js/pulse by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 19:00:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com/">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-592c4aa40e940d1b0607a3cf272916ff.css" />
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-96ebb1551fc5dba84c6d2a0fa7b1cfcf.css" />
+  
+  
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/site-348211d27070b0d7bb5d31b1ac3d265b.css" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Pulse · mozilla/pdf.js · GitHub</title>
+    <meta name="description" content="GitHub is where people build software. More than 27 million people use GitHub to discover, fork, and contribute to over 80 million projects.">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/131524?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="https://github.com/mozilla/pdf.js/mozilla/pdf.js" /><meta property="og:url" content="https://github.com/mozilla/pdf.js" /><meta property="og:description" content="PDF Reader in JavaScript. Contribute to pdf.js development by creating an account on GitHub." />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="F3A3:2A19:8007AB:B94D3F:5AD24F97" data-pjax-transient>
+
+
+  
+
+  <meta name="selected-link" value="pulse" data-pjax-transient>
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+  <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+  <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="F3A3:2A19:8007AB:B94D3F:5AD24F97" /><meta name="octolytics-dimension-region_edge" content="ap-southeast-1" /><meta name="octolytics-dimension-region_render" content="iad" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/repositories/pulse" data-pjax-transient="true" />
+
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="OTIzYThkMzY2N2M2ODBmNTdiZTE3NzViOWQzZTJlYjAxNjk1NGY5NjUyZWYyYTg1YjIwYjQ3ZDk0Yzk3NTM1MXx7InJlbW90ZV9hZGRyZXNzIjoiMjcuNjguMTI0Ljc5IiwicmVxdWVzdF9pZCI6IkYzQTM6MkExOTo4MDA3QUI6Qjk0RDNGOjVBRDI0Rjk3IiwidGltZXN0YW1wIjoxNTIzNzMyMzc2LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+
+    <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_INSIGHTS,MARKETPLACE_SELF_SERVE,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES">
+
+  <meta name="html-safe-nonce" content="2af27bd832e30849468a2e7a2d34c20ac0fff702">
+
+  <meta http-equiv="x-pjax-version" content="402da7acb22ff2e9e7f63736b021d40d">
+  
+
+      <link href="https://github.com/mozilla/pdf.js/commits/master.atom" rel="alternate" title="Recent Commits to pdf.js:master" type="application/atom+xml">
+
+  <meta name="description" content="PDF Reader in JavaScript. Contribute to pdf.js development by creating an account on GitHub.">
+  <meta name="go-import" content="github.com/mozilla/pdf.js git https://github.com/mozilla/pdf.js.git">
+
+  <meta name="octolytics-dimension-user_id" content="131524" /><meta name="octolytics-dimension-user_login" content="mozilla" /><meta name="octolytics-dimension-repository_id" content="1663468" /><meta name="octolytics-dimension-repository_nwo" content="https://github.com/mozilla/pdf.js/mozilla/pdf.js" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="1663468" /><meta name="octolytics-dimension-repository_network_root_nwo" content="https://github.com/mozilla/pdf.js/mozilla/pdf.js" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+
+
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+<link rel="manifest" href="https://github.com/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+        <header class="Header header-logged-out  position-relative f4 py-3" role="banner">
+  <div class="container-lg d-flex px-3">
+    <div class="d-flex flex-justify-between flex-items-center">
+      <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+        <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--bright d-flex flex-justify-between flex-auto">
+        <nav class="mt-0">
+          <ul class="d-flex list-style-none">
+              <li class="ml-2">
+                <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features" href="https://github.com/features">
+                  Features
+</a>              </li>
+              <li class="ml-4">
+                <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business" data-selected-links="/business /business/security /business/customers /business" href="https://github.com/business">
+                  Business
+</a>              </li>
+
+              <li class="ml-4">
+                <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="https://github.com/explore">
+                  Explore
+</a>              </li>
+
+              <li class="ml-4">
+                    <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace" data-selected-links=" /marketplace" href="https://github.com/marketplace">
+                      Marketplace
+</a>              </li>
+              <li class="ml-4">
+                <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing" href="https://github.com/pricing">
+                  Pricing
+</a>              </li>
+          </ul>
+        </nav>
+
+      <div class="d-flex">
+          <div class="d-lg-flex flex-items-center mr-3">
+            <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scoped-search-url="/mozilla/pdf.js/search" data-unscoped-search-url="/search" action="https://github.com/mozilla/pdf.js/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <label class="form-control header-search-wrapper  js-chromeless-input-container">
+          <a class="header-search-scope no-underline" href="https://github.com/mozilla/pdf.js/pulse">This repository</a>
+      <input type="text"
+        class="form-control header-search-input  js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s,/"
+        name="q"
+        value=""
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off"
+        >
+        <input type="hidden" class="js-site-search-type-field" name="type" >
+    </label>
+</form></div>
+
+          </div>
+
+        <span class="d-inline-block">
+            <div class="HeaderNavlink px-0 py-2 m-0">
+              <a class="text-bold text-white no-underline" href="https://github.com/login?return_to=%2Fmozilla%2Fpdf.js%2Fpulse" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+                <span class="text-gray">or</span>
+                <a class="text-bold text-white no-underline" href="https://github.com/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+            </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+</div>
+
+
+
+  <div role="main" class="application-main ">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <div id="js-repo-pjax-container" data-pjax-container >
+      
+
+
+
+  
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+    <div class="repohead-details-container clearfix container">
+
+      <ul class="pagehead-actions">
+  <li>
+      <a href="https://github.com/login?return_to=%2Fmozilla%2Fpdf.js"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg class="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="https://github.com/mozilla/pdf.js/watchers"
+     aria-label="947 users are watching this repository">
+    947
+  </a>
+
+  </li>
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fmozilla%2Fpdf.js"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/mozilla/pdf.js/stargazers"
+      aria-label="21674 users starred this repository">
+      21,674
+    </a>
+
+  </li>
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fmozilla%2Fpdf.js"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg class="octicon octicon-repo-forked" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="https://github.com/mozilla/pdf.js/network" class="social-count"
+       aria-label="5285 users forked this repository">
+      5,285
+    </a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" href="https://github.com/mozilla">mozilla</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="https://github.com/mozilla/pdf.js">pdf.js</a></strong>
+
+</h1>
+
+    </div>
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /mozilla/pdf.js" href="https://github.com/mozilla/pdf.js">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /mozilla/pdf.js/issues" href="https://github.com/mozilla/pdf.js/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">698</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /mozilla/pdf.js/pulls" href="https://github.com/mozilla/pdf.js/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">22</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /mozilla/pdf.js/projects" href="https://github.com/mozilla/pdf.js/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >5</span>
+</a>
+    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /mozilla/pdf.js/wiki" href="https://github.com/mozilla/pdf.js/wiki">
+      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+      Wiki
+</a>
+
+  <a class="js-selected-navigation-item selected reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse /mozilla/pdf.js/pulse" href="https://github.com/mozilla/pdf.js/pulse">
+    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+    Insights
+</a>
+
+</nav>
+
+
+  </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav  ">
+  <div class="repository-content ">
+
+    
+  <div class="columns">
+    <div class="column one-fourth">
+      
+
+  <nav class="menu" data-pjax>
+    <a class="js-selected-navigation-item selected menu-item" role="tab" data-selected-links="pulse /mozilla/pdf.js/pulse" href="https://github.com/mozilla/pdf.js/pulse">Pulse</a>
+    <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links=" /mozilla/pdf.js/graphs/contributors" href="https://github.com/mozilla/pdf.js/graphs/contributors">Contributors</a>
+    <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links=" /mozilla/pdf.js/graphs/commit-activity" href="https://github.com/mozilla/pdf.js/graphs/commit-activity">Commits</a>
+    <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links=" /mozilla/pdf.js/graphs/code-frequency" href="https://github.com/mozilla/pdf.js/graphs/code-frequency">Code frequency</a>
+      <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links="dependency_graph /mozilla/pdf.js/network/dependencies" href="https://github.com/mozilla/pdf.js/network/dependencies">Dependency graph</a>
+    <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links=" /mozilla/pdf.js/network" href="https://github.com/mozilla/pdf.js/network">Network</a>
+    <a class="js-selected-navigation-item menu-item" role="tab" data-selected-links=" /mozilla/pdf.js/network/members" href="https://github.com/mozilla/pdf.js/network/members">Forks</a>
+  </nav>
+
+
+    </div>
+    <div class="column three-fourths">
+      
+  <div class="Subhead">
+    <h2 class="Subhead-heading">April 7, 2018 <span class="dash">–</span> April 14, 2018</h2>
+    <div class="Subhead-actions">
+      <div class="select-menu select-menu-modal-right js-menu-container js-select-menu js-pulse-period">
+        <button class="btn btn-sm select-menu-button js-menu-target" type="button" aria-haspopup="true" aria-expanded="false">
+          <i>Period:</i>
+          <span class="js-select-button">1 week</span>
+        </button>
+
+        <div class="select-menu-modal-holder js-menu-content js-navigation-container">
+          <div class="select-menu-modal">
+            <div class="select-menu-header">
+              <span class="select-menu-title">Filter Activity</span>
+              <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+            </div>
+
+            <div class="select-menu-list">
+              <div class="select-menu-item js-navigation-item ">
+                <input type="radio" name="period" id="period_daily" value="daily" data-url="/mozilla/pdf.js/pulse/daily" />
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                <div class="select-menu-item-text js-select-button-text">24 hours</div>
+              </div>
+              <div class="select-menu-item js-navigation-item ">
+                <input type="radio" name="period" id="period_halfweekly" value="halfweekly" data-url="/mozilla/pdf.js/pulse/halfweekly" />
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                <div class="select-menu-item-text js-select-button-text">3 days</div>
+              </div>
+              <div class="select-menu-item js-navigation-item selected">
+                <input type="radio" name="period" id="period_weekly" value="weekly" data-url="/mozilla/pdf.js/pulse" checked="checked" />
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                <div class="select-menu-item-text js-select-button-text">1 week</div>
+              </div>
+              <div class="select-menu-item js-navigation-item ">
+                <input type="radio" name="period" id="period_monthly" value="monthly" data-url="/mozilla/pdf.js/pulse/monthly" />
+                <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                <div class="select-menu-item-text js-select-button-text">1 month</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Box">
+    <div class="Box-header">
+      <h3 class="Box-title">Overview</h3>
+    </div>
+
+    <ul>
+      <li class="Box-row p-0 d-flex">
+        <div class="flex-item-equal p-4">
+          <div class="d-table width-full bg-gray">
+              <a href="https://github.com/mozilla/pdf.js/pulls?direction=desc&amp;sort=created&amp;state=closed" class="d-table-cell bg-purple pt-2" style="width:66.66666666666666%" aria-label="View all merged pull requests"></a>
+              <a href="https://github.com/mozilla/pdf.js/pulls?direction=desc&amp;sort=created&amp;state=open" class="d-table-cell bg-green pt-2" style="width:33.33333333333333%" aria-label="View all open pull requests"></a>
+          </div>
+          <div class="mt-2">
+            <span class="text-emphasized">6</span>
+            Active Pull Requests
+          </div>
+        </div>
+
+        <div class="flex-item-equal p-4">
+          <div class="d-table width-full bg-gray">
+              <a href="https://github.com/mozilla/pdf.js/issues?state=closed" class="d-table-cell bg-red pt-2" style="width:46.15384615384615%" aria-label="View all closed issues"></a>
+              <a href="https://github.com/mozilla/pdf.js/issues?state=open" class="d-table-cell bg-green pt-2" style="width:53.84615384615385%" aria-label="View all open issues"></a>
+          </div>
+          <div class="mt-2">
+            <span class="text-emphasized">26</span>
+            Active Issues
+          </div>
+        </div>
+      </li>
+
+      <li class="Box-row p-0">
+        <ul class="summary-stats">
+          <li>
+            <a href="#merged-pull-requests">
+              <span class="num">
+                <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+                4
+              </span>
+              Merged Pull Requests
+            </a>
+          </li>
+          <li>
+            <a href="#proposed-pull-requests">
+              <span class="num">
+                <svg class="octicon octicon-git-branch" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+                2
+              </span>
+              Proposed Pull Requests
+            </a>
+          </li>
+          <li>
+            <a href="#closed-issues">
+              <span class="num">
+                <svg class="octicon octicon-issue-closed" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/></svg>
+                12
+              </span>
+              Closed Issues
+            </a>
+          </li>
+          <li>
+            <a href="#new-issues">
+              <span class="num">
+                <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+                14
+              </span>
+              New Issues
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
+    <div class="authors-and-code">
+      <div class="section diffstat-summary v-align-top pt-3">
+        Excluding merges, <strong>4 authors</strong>
+        have pushed
+        <strong><span class="text-emphasized">4</span> commits</strong> to master and
+        <strong><span class="text-emphasized">5</span> commits</strong>
+        to all branches.
+        On master, <strong>48 files</strong>
+        have changed and there have been
+        <a href="https://github.com/mozilla/pdf.js/compare/master@%7B1523127576%7D...master" class="lines-changed">
+          <strong class="insertions">676</strong> <strong>additions</strong> and
+          <strong class="deletions">221</strong> <strong>deletions</strong></a>.
+      </div>
+      <div class="section v-align-top pt-2">
+        <div class="js-graph graph-canvas pulse-authors-graph" data-graph-name="pulse-authors"
+            data-url="https://github.com/mozilla/pdf.js/pulse_committer_data">
+          <img class="graph-loading dots" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="">
+        </div>
+      </div>
+    </div>
+
+  <div class="pulse-sections">
+      <div id="pull-requests" class="pulse-section">
+    <h3 class="conversation-list-heading" id="merged-pull-requests">
+      <span class="inner">
+        <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        <span class="text-emphasized">4</span>
+        Pull requests merged by
+        <span class="text-emphasized">4</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="State State--purple">Merged</span>
+        <span class="num">#9659</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9659" class="title">Remove createFromIR from PDFFunctionFactory</a>
+        <relative-time datetime="2018-04-12T21:22:44Z">Apr 12, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--purple">Merged</span>
+        <span class="num">#9501</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9501" class="title">Use FDSelect and FDArray when converting CFF CID font to paths</a>
+        <relative-time datetime="2018-04-11T17:49:08Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--purple">Merged</span>
+        <span class="num">#9640</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9640" class="title">Update packages and translations</a>
+        <relative-time datetime="2018-04-08T13:53:52Z">Apr 8, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--purple">Merged</span>
+        <span class="num">#9629</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9629" class="title">Implement autoprefixer</a>
+        <relative-time datetime="2018-04-08T13:11:42Z">Apr 8, 2018</relative-time>
+      </li>
+    </ul>
+
+    <h3 class="conversation-list-heading" id="proposed-pull-requests">
+      <span class="inner">
+        <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        <span class="text-emphasized">2</span>
+        Pull requests proposed by <span class="text-emphasized">2</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="State State--green">Proposed</span>
+        <span class="num">#9645</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9645" class="title">Display of large scanned PDFs on IOS devices</a>
+        <relative-time datetime="2018-04-09T14:46:02Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Proposed</span>
+        <span class="num">#9660</span>
+        <a href="https://github.com/mozilla/pdf.js/pull/9660" class="title">Support running the tests headlessly.</a>
+        <relative-time datetime="2018-04-12T22:18:50Z">Apr 12, 2018</relative-time>
+      </li>
+    </ul>
+</div>
+
+
+      <div id="issues" class="pulse-section">
+    <h3 class="conversation-list-heading" id="closed-issues">
+      <span class="inner">
+        <svg class="octicon octicon-issue-closed" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 10h2v2H7v-2zm2-6H7v5h2V4zm1.5 1.5l-1 1L12 9l4-4.5-1-1L12 7l-1.5-1.5zM8 13.7A5.71 5.71 0 0 1 2.3 8c0-3.14 2.56-5.7 5.7-5.7 1.83 0 3.45.88 4.5 2.2l.92-.92A6.947 6.947 0 0 0 8 1C4.14 1 1 4.14 1 8s3.14 7 7 7 7-3.14 7-7l-1.52 1.52c-.66 2.41-2.86 4.19-5.48 4.19v-.01z"/></svg>
+        <span class="text-emphasized">12</span> Issues
+        closed by <span class="text-emphasized">3</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9661</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9661" class="title">Apache mod_rewrite empty arguments.</a>
+        <relative-time datetime="2018-04-14T08:26:16Z">Apr 14, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9657</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9657" class="title">Scroll to the exact text location in PDF viewer through the API</a>
+        <relative-time datetime="2018-04-12T22:39:04Z">Apr 12, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9656</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9656" class="title">Problem in getting the displaying the PDF all pages once.</a>
+        <relative-time datetime="2018-04-12T22:35:22Z">Apr 12, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9635</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9635" class="title">Missing background and some other aspects</a>
+        <relative-time datetime="2018-04-11T21:59:07Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9652</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9652" class="title">How to trigger the print event in viewer.js from viewer.html by clicking the external button</a>
+        <relative-time datetime="2018-04-11T21:58:01Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9651</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9651" class="title">pdf.js with firefox for android</a>
+        <relative-time datetime="2018-04-11T21:55:36Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9355</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9355" class="title">PDF Font size displaying incorrectly</a>
+        <relative-time datetime="2018-04-11T17:49:09Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9649</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9649" class="title">Error Cannot find locale.properties (Issue #9643)</a>
+        <relative-time datetime="2018-04-10T21:25:19Z">Apr 10, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9646</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9646" class="title">PDFs opened in Chrome cannot be affected by any other extension</a>
+        <relative-time datetime="2018-04-09T20:54:42Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9644</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9644" class="title">How can I customize printing, not with viewer.html</a>
+        <relative-time datetime="2018-04-09T20:52:14Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#6685</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/6685" class="title">Default viewer doesn&#39;t use &#39;retina&#39; toolbar icons on iOS</a>
+        <relative-time datetime="2018-04-08T13:12:41Z">Apr 8, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--red">Closed</span>
+        <span class="num">#9639</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9639" class="title">Position of some textelements is wrong</a>
+        <relative-time datetime="2018-04-08T10:48:43Z">Apr 8, 2018</relative-time>
+      </li>
+    </ul>
+
+    <h3 class="conversation-list-heading" id="new-issues">
+      <span class="inner">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span class="text-emphasized">14</span> Issues
+        created by <span class="text-emphasized">14</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9665</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9665" class="title">Background images not displayed in page margin boxes</a>
+        <relative-time datetime="2018-04-14T09:25:38Z">Apr 14, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9664</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9664" class="title">Specific pdf file is not rendered correctly in Chrome</a>
+        <relative-time datetime="2018-04-13T13:21:36Z">Apr 13, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9663</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9663" class="title">once the search bar is closed it should be clear the next time it&#39;s opened.</a>
+        <relative-time datetime="2018-04-13T10:02:26Z">Apr 13, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9662</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9662" class="title">Why is there a memory leak when rendering pages to pdf.js?</a>
+        <relative-time datetime="2018-04-13T05:43:12Z">Apr 13, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9658</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9658" class="title">Cannot add custom header to getDocument?</a>
+        <relative-time datetime="2018-04-12T10:17:18Z">Apr 12, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9655</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9655" class="title">Content messed up in the textLayer div</a>
+        <relative-time datetime="2018-04-12T06:35:55Z">Apr 12, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9654</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9654" class="title">web/secondary_toolbar.js loops over every event property value, triggering sync reflow</a>
+        <relative-time datetime="2018-04-11T18:30:19Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9653</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9653" class="title">Open certain bookmark when pdfviewer opened</a>
+        <relative-time datetime="2018-04-11T12:57:27Z">Apr 11, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9650</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9650" class="title">Corrupted displaying of attached file</a>
+        <relative-time datetime="2018-04-10T16:07:56Z">Apr 10, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9648</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9648" class="title">Blurry graph in pdf</a>
+        <relative-time datetime="2018-04-10T12:03:45Z">Apr 10, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9647</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9647" class="title">SVG renderer does not implement setTextRenderMode, beginAnnotations and endAnnotations</a>
+        <relative-time datetime="2018-04-09T23:42:24Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9643</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9643" class="title">l10n.js - locale.properties 404 (Not Found)</a>
+        <relative-time datetime="2018-04-09T12:05:51Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9642</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9642" class="title">print preview bug 1.9.426</a>
+        <relative-time datetime="2018-04-09T06:51:15Z">Apr 9, 2018</relative-time>
+      </li>
+      <li>
+        <span class="State State--green">Opened</span>
+        <span class="num">#9641</span>
+        <a href="https://github.com/mozilla/pdf.js/issues/9641" class="title">Fonts are incorrectly printed on page 3 onward</a>
+        <relative-time datetime="2018-04-08T20:27:39Z">Apr 8, 2018</relative-time>
+      </li>
+    </ul>
+
+</div>
+
+
+      <div id="active_discussions" class="pulse-section">
+  <h3 class="conversation-list-heading">
+    <span class="inner">
+      <svg class="octicon octicon-comment-discussion" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"/></svg>
+      <span class="text-emphasized">15</span>
+      Unresolved conversations
+    </span>
+  </h3>
+  <p>
+    Sometimes conversations happen on old items that aren’t yet closed.
+    Here is a list of all the Issues and Pull Requests with unresolved
+    conversations.
+  </p>
+
+  <ul class="simple-conversation-list varied-states">
+    <li>
+      <strong class="meta">3 new comments</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9521</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9521" class="title">Offically release version 2.0</a>
+      <relative-time datetime="2018-04-13T22:46:40Z">Apr 13, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">2 new comments</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9638</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9638" class="title">Approach to importing in web/ folder makes it complicated to use the files without needless dependencies</a>
+      <relative-time datetime="2018-04-09T23:06:15Z">Apr 9, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9103</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9103" class="title">total is undefined in LoadingTask.onProgress</a>
+      <relative-time datetime="2018-04-08T12:27:17Z">Apr 8, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#8802</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/8802" class="title">Zoom is too sensitive on OS X</a>
+      <relative-time datetime="2018-04-08T23:24:07Z">Apr 8, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#8777</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/8777" class="title">New line not recognised and instead combines words together without a space</a>
+      <relative-time datetime="2018-04-09T07:49:30Z">Apr 9, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#4706</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/4706" class="title">Blurry/fuzzy embedded images</a>
+      <relative-time datetime="2018-04-11T07:30:35Z">Apr 11, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#5765</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/5765" class="title">Add events to the viewer API.</a>
+      <relative-time datetime="2018-04-11T07:42:42Z">Apr 11, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#6444</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/6444" class="title">Tab URLs are broken in Chrome</a>
+      <relative-time datetime="2018-04-11T10:49:30Z">Apr 11, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9440</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9440" class="title">Document that pdfjs-dist is a &quot;nightly&quot; build</a>
+      <relative-time datetime="2018-04-12T22:55:20Z">Apr 12, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9357</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9357" class="title">Poor print quality of precise pattern compared to Acrobat DC</a>
+      <relative-time datetime="2018-04-12T22:56:36Z">Apr 12, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#7094</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/7094" class="title">Poor print quality</a>
+      <relative-time datetime="2018-04-12T22:57:48Z">Apr 12, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#7041</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/7041" class="title">Poorly rendered image quality</a>
+      <relative-time datetime="2018-04-12T23:00:49Z">Apr 12, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9524</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9524" class="title">Canvas works well on Desktop, but not on iPad or Android</a>
+      <relative-time datetime="2018-04-13T08:57:26Z">Apr 13, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9570</span>
+      <a href="https://github.com/mozilla/pdf.js/issues/9570" class="title">IOS can&#39;t render certain PDFs</a>
+      <relative-time datetime="2018-04-13T13:03:19Z">Apr 13, 2018</relative-time>
+    </li>
+    <li>
+      <strong class="meta">0 new comments</strong>
+      <span class="State State--green">Open</span>
+      <span class="num">#9208</span>
+      <a href="https://github.com/mozilla/pdf.js/pull/9208" class="title">Add scrolling and spread modes to web viewer</a>
+      <relative-time datetime="2018-04-09T04:22:23Z">Apr 9, 2018</relative-time>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+
+    </div>
+  </div>
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+      
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2018 <span title="0.29075s from unicorn-416443156-38rrj">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com/">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon" href="https://github.com/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+      <li class="mr-3"><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li class="mr-3"><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li class="mr-3"><a href="https://blog.github.com/" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+    You can't perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-413dd2a0695c3dfaf7de158468a91646.js"></script>
+    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-d941de838fad400fb91238d23684a777.js"></script>
+    
+    <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d19623a69cc756b5a2cbda89154a69e9.js"></script>
+    
+    
+        <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/graphs-0d77fa5e824903705d456b318f22c723.js"></script>
+
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="#">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="#">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+<div id="hovercard-aria-description" class="sr-only">
+  Press h to open a hovercard with more details.
+</div>
+
+
+  </body>
+
+<!-- Mirrored from github.com/mozilla/pdf.js/pulse by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 19:00:40 GMT -->
+</html>
+

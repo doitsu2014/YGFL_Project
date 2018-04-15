@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/mozilla/pdf.js/commits/master</id>
+  <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commits/master"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/mozilla/pdf.js/commits/master.atom"/>
+  <title>Recent Commits to pdf.js:master</title>
+  <updated>2018-04-12T21:22:43Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/2dc4af525d1612c98afcd1e6bee57d4788f78f97"/>
+    <title>
+        Merge pull request #9659 from yurydelendik/rm-createFromIR
+    </title>
+    <updated>2018-04-12T21:22:43Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/942640?s=30&amp;v=4"/>
+    <author>
+      <name>brendandahl</name>
+      <uri>https://github.com/brendandahl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9659 from yurydelendik/rm-createFromIR
+
+Remove createFromIR from PDFFunctionFactory&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7d7bc80eee7ef4486547bec7b3ecba7be7aabc69</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/7d7bc80eee7ef4486547bec7b3ecba7be7aabc69"/>
+    <title>
+        Merge pull request #9501 from janpe2/text-clip-cff-cid
+    </title>
+    <updated>2018-04-11T17:49:07Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/942640?s=30&amp;v=4"/>
+    <author>
+      <name>brendandahl</name>
+      <uri>https://github.com/brendandahl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9501 from janpe2/text-clip-cff-cid
+
+Use FDSelect and FDArray when converting CFF CID font to paths&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/20085aaa5ee0fa00cc5b8ab0cc8ed0be64f5c4d2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/20085aaa5ee0fa00cc5b8ab0cc8ed0be64f5c4d2"/>
+    <title>
+        Remove createFromIR from PDFFunctionFactory; forgive invalid Dict val…
+    </title>
+    <updated>2018-04-10T23:49:31Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/1523410?s=30&amp;v=4"/>
+    <author>
+      <name>yurydelendik</name>
+      <uri>https://github.com/yurydelendik</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Remove createFromIR from PDFFunctionFactory; forgive invalid Dict values.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8ea505545a56dcd551c344d962d3fa74c349bf70</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/8ea505545a56dcd551c344d962d3fa74c349bf70"/>
+    <title>
+        Use FDSelect and FDArray when converting CFF CID font to paths
+    </title>
+    <updated>2018-04-10T13:44:42Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/26090208?s=30&amp;v=4"/>
+    <author>
+      <name>janpe2</name>
+      <uri>https://github.com/janpe2</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Use FDSelect and FDArray when converting CFF CID font to paths&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2275485ceca6f2fc87dc0f9d50216fdc751f146f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/2275485ceca6f2fc87dc0f9d50216fdc751f146f"/>
+    <title>
+        Merge pull request #9640 from timvandermeij/updates
+    </title>
+    <updated>2018-04-08T13:53:51Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9640 from timvandermeij/updates
+
+Update packages and translations&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e0b63cc7afbf7034508bc9665f8656975bc004bc</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/e0b63cc7afbf7034508bc9665f8656975bc004bc"/>
+    <title>
+        Update packages and translations
+    </title>
+    <updated>2018-04-08T13:49:17Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update packages and translations&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1a634f9c6ac722ce92be9135e12142e778dc45e8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/1a634f9c6ac722ce92be9135e12142e778dc45e8"/>
+    <title>
+        Merge pull request #9629 from wojtekmaj/add-autoprefixer
+    </title>
+    <updated>2018-04-08T13:11:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9629 from wojtekmaj/add-autoprefixer
+
+Implement autoprefixer&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/69e9fe2494e9a68902934fbf92259bb8a85839a5</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/69e9fe2494e9a68902934fbf92259bb8a85839a5"/>
+    <title>
+        Provide a prefixed `appearance` CSS rule for reference testing in Chrome
+    </title>
+    <updated>2018-04-08T11:54:16Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Provide a prefixed `appearance` CSS rule for reference testing in Chrome
+
+In `rasterizeAnnotationLayer` we load the source CSS files directly, so
+these are not processed by Autoprefixer. Since the prefixed rules have
+now been removed from the source CSS files, we must manually provide one
+prefixed rule that Chrome needs in the overrides CSS file for checkbox
+and radio button rendering to work in the reference tests.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/acd1fa4c4f83617feb969c2b8a79dca1e286257c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/acd1fa4c4f83617feb969c2b8a79dca1e286257c"/>
+    <title>
+        Configure Autoprefixer
+    </title>
+    <updated>2018-04-04T21:02:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/5426427?s=30&amp;v=4"/>
+    <author>
+      <name>wojtekmaj</name>
+      <uri>https://github.com/wojtekmaj</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Configure Autoprefixer&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ed67c1d6aa61bd494fa2d9658a61ac7aecf401db</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/ed67c1d6aa61bd494fa2d9658a61ac7aecf401db"/>
+    <title>
+        Introduce autoprefixer to gulp process
+    </title>
+    <updated>2018-04-03T22:26:01Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/5426427?s=30&amp;v=4"/>
+    <author>
+      <name>wojtekmaj</name>
+      <uri>https://github.com/wojtekmaj</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Introduce autoprefixer to gulp process&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/dbb0e88bc10e9b8e319e74b6dccd33e0e6c6495c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/dbb0e88bc10e9b8e319e74b6dccd33e0e6c6495c"/>
+    <title>
+        Clean up browser-specific CSS
+    </title>
+    <updated>2018-04-03T22:25:12Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/5426427?s=30&amp;v=4"/>
+    <author>
+      <name>wojtekmaj</name>
+      <uri>https://github.com/wojtekmaj</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Clean up browser-specific CSS&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/a7a034d803094b5d421a0d429c84906aea94edf2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/a7a034d803094b5d421a0d429c84906aea94edf2"/>
+    <title>
+        Merge pull request #9566 from brendandahl/remove-ff-ext
+    </title>
+    <updated>2018-04-03T20:45:38Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/942640?s=30&amp;v=4"/>
+    <author>
+      <name>brendandahl</name>
+      <uri>https://github.com/brendandahl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9566 from brendandahl/remove-ff-ext
+
+Remove the Firefox extension building code.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e8cf7fd5121e42aa26f5f670d5fc83b7e3fe121b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/e8cf7fd5121e42aa26f5f670d5fc83b7e3fe121b"/>
+    <title>
+        Merge pull request #9624 from wojtekmaj/no-warning-on-dependency-oper…
+    </title>
+    <updated>2018-04-03T17:55:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/942640?s=30&amp;v=4"/>
+    <author>
+      <name>brendandahl</name>
+      <uri>https://github.com/brendandahl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9624 from wojtekmaj/no-warning-on-dependency-operator
+
+Prevent warning on unimplemented operator thrown for OPS.dependency&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d21eecefc19907540c686c3635390150b53893ee</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/d21eecefc19907540c686c3635390150b53893ee"/>
+    <title>
+        Merge pull request #9620 from wojtekmaj/fix-typos
+    </title>
+    <updated>2018-04-03T17:54:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/942640?s=30&amp;v=4"/>
+    <author>
+      <name>brendandahl</name>
+      <uri>https://github.com/brendandahl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9620 from wojtekmaj/fix-typos
+
+Fix typos&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/acc0a0fe9509fc0f9ef0df989f25c7bda64724df</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/acc0a0fe9509fc0f9ef0df989f25c7bda64724df"/>
+    <title>
+        Prevent warning on unimplemented operator thrown for OPS.dependency
+    </title>
+    <updated>2018-04-02T12:29:34Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/5426427?s=30&amp;v=4"/>
+    <author>
+      <name>wojtekmaj</name>
+      <uri>https://github.com/wojtekmaj</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Prevent warning on unimplemented operator thrown for OPS.dependency&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ea2850e9a7ac42ce8d2761160645776452cd2a41</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/ea2850e9a7ac42ce8d2761160645776452cd2a41"/>
+    <title>
+        Fix typos
+    </title>
+    <updated>2018-04-01T21:20:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/5426427?s=30&amp;v=4"/>
+    <author>
+      <name>wojtekmaj</name>
+      <uri>https://github.com/wojtekmaj</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Fix typos&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2f63ca0705aac113c6b9936dec02d9482add677c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/2f63ca0705aac113c6b9936dec02d9482add677c"/>
+    <title>
+        Merge pull request #9619 from timvandermeij/systemjs
+    </title>
+    <updated>2018-04-01T11:19:03Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9619 from timvandermeij/systemjs
+
+Pin `systemjs` to avoid breakage&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6896d300374e66153e5742ac81d689cf69445dd9</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/6896d300374e66153e5742ac81d689cf69445dd9"/>
+    <title>
+        Pin `systemjs` to avoid breakage
+    </title>
+    <updated>2018-04-01T11:07:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Pin `systemjs` to avoid breakage
+
+SystemJS version 0.21.0 works, but version 0.21.1 breaks with various
+`Unable to load transpiler to transpile` errors. Pin the version to
+0.21.0 for now to avoid this issue.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/57e8676180752c375e0d364234565d6240a9a3ec</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/57e8676180752c375e0d364234565d6240a9a3ec"/>
+    <title>
+        Merge pull request #9618 from timvandermeij/node-example
+    </title>
+    <updated>2018-04-01T10:57:14Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #9618 from timvandermeij/node-example
+
+Improve the instructions and code for the `pdf2png` example&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/64b1315bb5e45062e125cf217ddc74c6d193707c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/mozilla/pdf.js/commit/64b1315bb5e45062e125cf217ddc74c6d193707c"/>
+    <title>
+        Improve the instructions and code for the `pdf2png` example
+    </title>
+    <updated>2018-04-01T10:52:57Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/1993262?s=30&amp;v=4"/>
+    <author>
+      <name>timvandermeij</name>
+      <uri>https://github.com/timvandermeij</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Improve the instructions and code for the `pdf2png` example
+
+We need to pass `disableFontFace` and `nativeImageDecoderSupport`
+because Node.js has no native support for `@font-face` and `Image`.
+Doing so makes it possible to render e.g., the Tracemonkey paper, which
+failed before. I made this PDF file the default because it&amp;#39;s also the
+default in other examples/demos and because it showcases the
+possibilities better than the very simple hello world PDF file.
+
+Building the library with `gulp dist-install` is easier and is already
+recommended in the other examples.&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>
