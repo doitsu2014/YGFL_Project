@@ -1,0 +1,55 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sun, 15 Apr 2018 01:47:27 at http://webapplayers.com/inspinia_admin-v2.7.1/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://webapplayers.com/inspinia_admin-v2.7.1/ -O1 "F:\DoitsuWorkspace\Workspace\YGLV\YGLV-Project\Templates\Template-Admin-Inspinia" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+02:00:38	Error: 	Exit requested by shell or user
+02:00:39	Warning: 	File not added due to mirror cancel: https://github.com/mozilla/pdf.js/pull/9566
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image1.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image2.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image3.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image4.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image5.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image6.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link mydomain.com/images/image7.png (from webapplayers.com/inspinia_admin-v2.7.1/ecommerce_product.html)
+02:00:40	Error: 	"Not Found" (404) at link webapplayers.com/inspinia_admin-v2.7.1/css/plugins/fonts/glyphicons-halflings-regular.eot (from webapplayers.com/inspinia_admin-v2.7.1/css/plugins/summernote/summernote-bs3.css)
+02:00:40	Error: 	"Not Found" (404) at link webapplayers.com/inspinia_admin-v2.7.1/css/plugins/fonts/glyphicons-halflings-regular.eot? (from webapplayers.com/inspinia_admin-v2.7.1/css/plugins/summernote/summernote-bs3.css)
+02:00:40	Error: 	"Not Found" (404) at link webapplayers.com/inspinia_admin-v2.7.1/css/plugins/fonts/glyphicons-halflings-regular.woff (from webapplayers.com/inspinia_admin-v2.7.1/css/plugins/summernote/summernote-bs3.css)
+02:00:40	Error: 	"Not Found" (404) at link webapplayers.com/inspinia_admin-v2.7.1/css/plugins/fonts/glyphicons-halflings-regular.ttf (from webapplayers.com/inspinia_admin-v2.7.1/css/plugins/summernote/summernote-bs3.css)
+02:00:40	Error: 	"Not Found" (404) at link webapplayers.com/inspinia_admin-v2.7.1/css/plugins/fonts/glyphicons-halflings-regular.svg (from webapplayers.com/inspinia_admin-v2.7.1/css/plugins/summernote/summernote-bs3.css)
+02:00:40	Error: 	"Not Found" (404) at link https://github.com/mozilla/mozilla/pdf.js (from https://github.com/mozilla/pdf.js)
+02:00:40	Warning: 	File not added due to mirror cancel: https://github.com/robots.txt
+02:00:41	Error: 	"Not Found" (404) at link https://github.com/mozilla/pdf.js/branches (from https://github.com/mozilla/pdf.js)
+02:00:41	Warning: 	Link https://github.com/mozilla/pdf.js/tree/gh-pages not scanned (follow robots meta tag)
+02:00:41	Warning: 	Link https://github.com/mozilla/pdf.js/tree/version-1.10 not scanned (follow robots meta tag)
+02:00:41	Warning: 	Link https://github.com/mozilla/pdf.js/tree/vundefined not scanned (follow robots meta tag)
+02:00:41	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.10.88 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.9.426 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.8.188 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.8.170 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.7.225 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.6.210 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.5.188 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.4.20 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.4.11 not scanned (follow robots meta tag)
+02:00:42	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.3.91 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.3.88 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.2.109 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.1.469 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.1.366 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.1.215 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.1.114 not scanned (follow robots meta tag)
+02:00:43	Warning: 	Link https://github.com/mozilla/pdf.js/tree/v1.1.3 not scanned (follow robots meta tag)
+02:00:43	Error: 	Exit requested by shell or user
+02:00:43	Error: 	"" (-1) at link https://github.com/mozilla/pdf.js/tree/v1.1.1 (from https://github.com/mozilla/pdf.js)
+02:00:43	Error: 	Exit requested by shell or user
+
+HTTrack Website Copier/3.49-2 mirror complete in 13 minutes 16 seconds : 739 links scanned, 722 files written (32102486 bytes overall) [16127379 bytes received at 20260 bytes/sec], 21146363 bytes transferred using HTTP compression in 360 files, ratio 22%, 4.9 requests per connection
+(18 errors, 22 warnings, 0 messages)
+* * MIRROR ABORTED! * *
+The current temporary cache is required for any update operation and only contains data downloaded during the present aborted session.
+The former cache might contain more complete information; if you do not want to lose that information, you have to restore it and delete the current cache.
+This can easily be done here by erasing the hts-cache/new.* files]
