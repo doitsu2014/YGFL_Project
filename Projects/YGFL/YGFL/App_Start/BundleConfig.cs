@@ -9,7 +9,8 @@ namespace YGFL
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Styles/all-in-one").IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true));
+            bundles.Add(new StyleBundle("~/Styles/all-in-one").IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true)
+                .Include("~/Content/template-admin/inspinia_admin-v2.7.1/font-awesome/css/font-awesome.css"));
 
             bundles.Add(new ScriptBundle("~/Scripts/inspinia/main-init").Include(
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/jquery-3.1.1.js",
@@ -35,6 +36,7 @@ namespace YGFL
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/jasny/jasny-bootstrap.min.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/datapicker/bootstrap-datepicker.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/nouslider/jquery.nouislider.min.js",
+                "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/dataTables/datatables.min.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/switchery/switchery.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/ionRangeSlider/ion.rangeSlider.min.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/iCheck/icheck.min.js",

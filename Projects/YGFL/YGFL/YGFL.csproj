@@ -287,6 +287,7 @@
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\cropper\cropper.css" />
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\cropper\cropper.min.css" />
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\datapicker\datepicker3.css" />
+    <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\dataTables\datatables.css" />
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\dataTables\datatables.min.css" />
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\daterangepicker\daterangepicker-bs3.css" />
     <Content Include="Content\template-admin\inspinia_admin-v2.7.1\css\plugins\dropzone\basic.css" />

@@ -7,7 +7,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
     <!-- Page title -->
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Styles/template-inspinia")
+   @Styles.Render("~/Styles/all-in-one")
 </head>
 <body>
 
@@ -186,7 +186,10 @@
             </div>
         </div>
     </div>
-    @Scripts.Render("~/Scripts/template-inspinia")
+    @Scripts.Render("~/Scripts/inspinia/main-init")
+    @Scripts.Render("~/Scripts/inspinia/custom-init")
+    @Scripts.Render("~/Scripts/inspinia/generalplugin-init")
+    @Scripts.Render("~/Scripts/inspinia/fullcalender-init")
     @RenderSection("scripts", required: false)
     @RenderSection("ygflscripts", required: false)
 </body>

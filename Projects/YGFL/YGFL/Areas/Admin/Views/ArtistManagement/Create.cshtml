@@ -49,11 +49,30 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Artist Image</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="image-crop">
+                                        <img src="~/Content/template-admin/inspinia_admin-v2.7.1/img/p3.jpg">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Preview image</h4>
+                                    <div class="col-md-6 img-preview img-preview-sm"></div>
+                                    
+                                    <div class="btn-group">
+                                        <div class="md-offset-1 btn-group">
+                                            <label title="Upload image file" for="inputImage" class="btn btn-primary">
+                                                <input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+                                                Upload new image
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-white" id="zoomIn" type="button">Zoom In</button>
+                                        <button class="btn btn-white" id="zoomOut" type="button">Zoom Out</button>
+                                        <button class="btn btn-white" id="rotateLeft" type="button">Rotate Left</button>
+                                        <button class="btn btn-white" id="rotateRight" type="button">Rotate Right</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group" id="data_3">
                             <label>Debut date</label>
@@ -81,6 +100,52 @@
         forceParse: false,
         autoclose: true,
         format: "dd/mm/yyyy"
+    });
+    var $image = $(".image-crop > img")
+
+    $($image).cropper({
+        preview: ".img-preview",
+     });
+    var $inputImage = $("#inputImage");
+    if (window.FileReader) {
+        $inputImage.change(function () {
+            var fileReader = new FileReader(),
+                files = this.files,
+                file;
+
+            if (!files.length) {
+                return;
+            }
+
+            file = files[0];
+
+            if (/^image\/\w+$/.test(file.type)) {
+                fileReader.readAsDataURL(file);
+                fileReader.onload = function () {
+                    $inputImage.val("");
+                    $image.cropper("reset", true).cropper("replace", this.result);
+                };
+            } else {
+                showMessage("Please choose an image file.");
+            }
+        });
+    } else {
+        $inputImage.addClass("hide");
+    }
+    $("#zoomIn").click(function () {
+        $image.cropper("zoom", 0.1);
+    });
+
+    $("#zoomOut").click(function () {
+        $image.cropper("zoom", -0.1);
+    });
+
+    $("#rotateLeft").click(function () {
+        $image.cropper("rotate", 45);
+    });
+
+    $("#rotateRight").click(function () {
+        $image.cropper("rotate", -45);
     });
 </script>
 }
