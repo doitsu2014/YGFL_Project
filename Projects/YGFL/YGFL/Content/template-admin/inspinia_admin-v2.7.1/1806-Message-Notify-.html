@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/toastr_notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Dec 2017 03:37:27 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Toastr notifications</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+    
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+ 
+        
+
+        </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>Toastr examples</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">Config option 1</a>
+                                </li>
+                                <li><a href="#">Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <button type="button" class="btn btn-primary" id="showtoast">Show Toast</button>
+<!--
+                            <button type="button" class="btn btn-white" id="cleartoasts">Clear Toasts</button>
+                            <button type="button" class="btn btn-white" id="clearlasttoast">Clear Last Toast</button>
+                            <button type="button" class="btn btn-white" id="showsimple">Show simple options</button>
+-->
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        </div>
+        </div>
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Toastr script -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        
+        
+        var typeWarningEnum = {
+                          Success: 'success',
+                          Info: 'info',
+                          Warning: 'warning',
+                          Error: 'error',
+                        };
+        var positionWarningEnum = {
+                          TopRight: 'toast-top-right',
+                          BottomRight: 'toast-bottom-right',
+                          BottomLeft: 'toast-bottom-left',
+                          TopLeft: 'toast-top-left',
+                          TopFullWidth: 'toast-top-full-width',
+                          BottomFullWidth: 'toast-bottom-full-width',
+                          TopCenter: 'toast-top-center',
+                          BottomCenter: 'toast-bottom-center',
+                        };
+        function showMessage(title, message, type = typeWarningEnum.Success, position= positionWarningEnum.TopRight ,showDuration = 200, hideDuration=300, timeout = 7000, extendTimeout = 1000){
+                var i = -1;
+                var toastCount = 0;
+                var $toastlast;
+                var shortCutFunction = type
+                var msg = message;
+                var title = title || '';
+                var $showDuration = showDuration;
+                var $hideDuration = hideDuration;
+                var $timeOut = timeout;
+                var $extendedTimeOut = extendTimeout;
+            //Declare and give it name of transition
+                var $showEasing = 'swing';
+                var $hideEasing = 'linear';
+                var $showMethod = 'fadeIn';
+                var $hideMethod = 'fadeOut';
+                var toastIndex = toastCount++;
+                toastr.options = {
+                     closeButton: true,
+                    debug: false,
+                    progressBar: true,
+                    preventDuplicates: false,
+                    positionClass: position,
+                    onclick: null
+                };
+                if ($('#addBehaviorOnToastClick').prop('checked')) {
+                    toastr.options.onclick = function () {
+                        alert('You can perform some custom action after a toast goes away');
+                    };
+                }
+                if ($showDuration) {
+                    toastr.options.showDuration = $showDuration;
+                }
+                if ($hideDuration) {
+                    toastr.options.hideDuration = $hideDuration;
+                }
+                if ($timeOut) {
+                    toastr.options.timeOut = $timeOut;
+                }
+                if ($extendedTimeOut) {
+                    toastr.options.extendedTimeOut = $extendedTimeOut;
+                }
+                if ($showEasing) {
+                    toastr.options.showEasing = $showEasing;
+                }
+                if ($hideEasing) {
+                    toastr.options.hideEasing = $hideEasing;
+                }
+                if ($showMethod) {
+                    toastr.options.showMethod = $showMethod;
+                }
+                if ($hideMethod) {
+                    toastr.options.hideMethod = $hideMethod;
+                }
+                if (!msg) {
+                    msg = message;
+                }
+                $("#toastrOptions").text("Command: toastr["
+                        + shortCutFunction
+                        + "](\""
+                        + msg
+                        + (title ? "\", \"" + title : '')
+                        + "\")\n\ntoastr.options = "
+                        + JSON.stringify(toastr.options, null, 2)
+                );
+               var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+//                $toastlast = $toast;
+//                if ($toast.find('#okBtn').length) {
+//                    $toast.delegate('#okBtn', 'click', function () {
+//                        alert('you clicked me. i was toast #' + toastIndex + '. goodbye!');
+//                        $toast.remove();
+//                    });
+//                }
+                if ($toast.find('#surpriseBtn').length) {
+                    $toast.delegate('#surpriseBtn', 'click', function () {
+                        alert('Surprise! you clicked me. i was toast #' + toastIndex + '. You could perform an action here.');
+                    });
+                }
+        }
+        
+        $('#showtoast').click(function () {           
+            showMessage('Email','Input your wrong username', typeWarningEnum.Success, positionWarningEnum.TopRight);
+        });
+    </script>
+
+    <script type="text/javascript">
+
+    </script>
+
+
+</body>
+
+
+<!-- Mirrored from webapplayers.com/inspinia_admin-v2.7.1/toastr_notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Dec 2017 03:37:27 GMT -->
+</html>

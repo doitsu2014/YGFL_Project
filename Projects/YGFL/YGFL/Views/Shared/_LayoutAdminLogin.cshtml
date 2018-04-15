@@ -8,13 +8,17 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
     <!-- Page title -->
     <title>Đăng nhập</title>
-    @Styles.Render("~/Styles/template-inspinia")
+    @Styles.Render("~/Styles/all-in-one")
 </head>
 <body class="gray-bg">
 
     @RenderBody()
     <!-- End wrapper-->
-    @Scripts.Render("~/Scripts/template-inspinia")
+
+    @Scripts.Render("~/Scripts/inspinia/main-init")
+    @Scripts.Render("~/Scripts/inspinia/custom-init")
+    @Scripts.Render("~/Scripts/inspinia/generalplugin-init")
+    @Scripts.Render("~/Scripts/inspinia/fullcalender-init")
     @RenderSection("Scripts", required: false)
 </body>
 
