@@ -9,7 +9,10 @@ namespace YGFL
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Styles/all-in-one").IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true));
+
+            bundles.Add(new StyleBundle("~/Styles/all-in-one")
+               .IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/css/", "*.css", true)
+               .IncludeDirectory("~/Content/template-admin/inspinia_admin-v2.7.1/font-awesome/", "*.css", true));
 
             bundles.Add(new ScriptBundle("~/Scripts/inspinia/main-init").Include(
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/jquery-3.1.1.js",
@@ -20,9 +23,11 @@ namespace YGFL
             ));
 
             bundles.Add(new ScriptBundle("~/Scripts/inspinia/custom-init").Include(
+                "~/Content/main-js/Leo-Alvis.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/inspinia.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/pace/pace.js"
             ));
+
 
             bundles.Add(new ScriptBundle("~/Scripts/inspinia/fullcalender-init").Include(
               "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/fullcalendar/moment.js",
@@ -47,7 +52,8 @@ namespace YGFL
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/select2/select2.full.min.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js",
                 "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js",
-                "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js"
+                "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js",
+                "~/Content/template-admin/inspinia_admin-v2.7.1/js/plugins/dataTables/datatables.min.js"
             ));
 
         }

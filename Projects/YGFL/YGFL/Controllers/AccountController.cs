@@ -395,6 +395,15 @@ namespace YGFL.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        // POST: /Account/LogOff
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult LogOff_Json()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+        }
+
         //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]

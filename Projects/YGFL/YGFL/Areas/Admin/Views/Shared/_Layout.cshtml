@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -7,7 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet' type='text/css'>
     <!-- Page title -->
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Styles/template-inspinia")
+    @Styles.Render("~/Styles/all-in-one")
 </head>
 <body>
 
@@ -34,7 +35,9 @@
                                 <li><a href="contacts.html">Contacts</a></li>
                                 <li><a href="mailbox.html">Mailbox</a></li>
                                 <li class="divider"></li>
-                                <li><a href="login.html">Logout</a></li>
+                                <li>
+                                    @RenderLogout()
+                                </li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -47,7 +50,7 @@
                             <li><a href="@Url.Action("Index","ArtistManagement")">Artist</a></li>
                             <li><a href="@Url.Action("Index","AlbumManagement")">Album</a></li>
                             <li><a href="@Url.Action("Index", "ShowManagement")">Show</a></li>
-                            <li><a  href="#">Video</a></li>
+                            <li><a href="#">Video</a></li>
                         </ul>
                     </li>
                     <li>
@@ -186,8 +189,51 @@
             </div>
         </div>
     </div>
-    @Scripts.Render("~/Scripts/template-inspinia")
+
+
+    @Scripts.Render("~/Scripts/inspinia/main-init")
+    @Scripts.Render("~/Scripts/inspinia/custom-init")
+    @Scripts.Render("~/Scripts/inspinia/generalplugin-init")
+    @Scripts.Render("~/Scripts/inspinia/fullcalender-init")
     @RenderSection("scripts", required: false)
     @RenderSection("ygflscripts", required: false)
+
+
+
 </body>
 </html>
+
+
+@helper RenderLogout()
+    {
+        if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff_Json", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+            }
+            <a onclick="logout()">Đăng xuất</a>
+            <script type="text/javascript">
+                function logout() {
+                    $('#logoutForm').on('submit', function (e) {
+                        e.preventDefault();
+                        var data = Utils.GetFieldsFromFormData(this);
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("LogOff_Json", "Account", new { area = "" })',
+                            data: data,
+                            success: function (response) {
+
+                                window.location.href = '@Url.Action("Index")'
+
+                            },
+
+                        });
+                    });
+                    $('#logoutForm').submit();
+                }
+            </script>
+        }
+}
+
+
