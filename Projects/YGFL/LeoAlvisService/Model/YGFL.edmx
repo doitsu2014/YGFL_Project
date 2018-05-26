@@ -28,6 +28,8 @@
           <Property Name="BannerURL" Type="nvarchar(max)" />
           <Property Name="MainVideoID" Type="int" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="AlbumSong" Type="int" />
         </EntityType>
         <EntityType Name="AlbumArtist">
           <Key>
@@ -64,13 +66,17 @@
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="AvatarURL" Type="nvarchar(max)" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="DebutDate" Type="date" />
+          <Property Name="Type" Type="int" />
         </EntityType>
         <EntityType Name="ArtistDetail">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MemberRealName" Type="nvarchar" MaxLength="255" />
+          <Property Name="MemberName" Type="nvarchar" MaxLength="255" />
+          <Property Name="MemberDescription" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ArtistID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="AspNetRoles">
@@ -163,6 +169,16 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Track">
           <Key>
@@ -446,6 +462,7 @@
           <EntitySet Name="ProductDetail" EntityType="Self.ProductDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Show" EntityType="Self.Show" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShowCategory" EntityType="Self.ShowCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Track" EntityType="Self.Track" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VideoArtist" EntityType="Self.VideoArtist" Schema="dbo" store:Type="Tables" />
@@ -542,6 +559,7 @@
           <EntitySet Name="ProductDetails" EntityType="YGFLDBModel.ProductDetail" />
           <EntitySet Name="Shows" EntityType="YGFLDBModel.Show" />
           <EntitySet Name="ShowCategories" EntityType="YGFLDBModel.ShowCategory" />
+          <EntitySet Name="sysdiagrams" EntityType="YGFLDBModel.sysdiagram" />
           <EntitySet Name="Tracks" EntityType="YGFLDBModel.Track" />
           <EntitySet Name="Videos" EntityType="YGFLDBModel.Video" />
           <EntitySet Name="VideoServers" EntityType="YGFLDBModel.VideoServer" />
@@ -629,6 +647,8 @@
           <Property Name="BannerURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MainVideoID" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AlbumSong" Type="Int32" />
           <NavigationProperty Name="Video" Relationship="YGFLDBModel.FK_Album_Video" FromRole="Album" ToRole="Video" />
           <NavigationProperty Name="Disks" Relationship="YGFLDBModel.FK_Disk_Album" FromRole="Album" ToRole="Disk" />
           <NavigationProperty Name="Artists" Relationship="YGFLDBModel.AlbumArtist" FromRole="Album" ToRole="Artist" />
@@ -662,6 +682,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="AvatarURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DebutDate" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="Int32" />
           <NavigationProperty Name="ArtistDetails" Relationship="YGFLDBModel.FK_ArtistDetail_Artist" FromRole="Artist" ToRole="ArtistDetail" />
           <NavigationProperty Name="Shows" Relationship="YGFLDBModel.FK_Show_Artist" FromRole="Artist" ToRole="Show" />
           <NavigationProperty Name="Albums" Relationship="YGFLDBModel.AlbumArtist" FromRole="Artist" ToRole="Album" />
@@ -672,7 +694,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MemberRealName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MemberName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MemberDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ArtistID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Artist" Relationship="YGFLDBModel.FK_ArtistDetail_Artist" FromRole="ArtistDetail" ToRole="Artist" />
         </EntityType>
@@ -771,6 +795,16 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Shows" Relationship="YGFLDBModel.FK_Show_ShowCategory" FromRole="ShowCategory" ToRole="Show" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Track">
           <Key>
@@ -991,6 +1025,8 @@
           <EntitySetMapping Name="Albums">
             <EntityTypeMapping TypeName="YGFLDBModel.Album">
               <MappingFragment StoreEntitySet="Album">
+                <ScalarProperty Name="AlbumSong" ColumnName="AlbumSong" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="MainVideoID" ColumnName="MainVideoID" />
                 <ScalarProperty Name="BannerURL" ColumnName="BannerURL" />
@@ -1027,6 +1063,8 @@
           <EntitySetMapping Name="Artists">
             <EntityTypeMapping TypeName="YGFLDBModel.Artist">
               <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DebutDate" ColumnName="DebutDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="AvatarURL" ColumnName="AvatarURL" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1038,7 +1076,9 @@
             <EntityTypeMapping TypeName="YGFLDBModel.ArtistDetail">
               <MappingFragment StoreEntitySet="ArtistDetail">
                 <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MemberDescription" ColumnName="MemberDescription" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberRealName" ColumnName="MemberRealName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1129,6 +1169,17 @@
               <MappingFragment StoreEntitySet="ShowCategory">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YGFLDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

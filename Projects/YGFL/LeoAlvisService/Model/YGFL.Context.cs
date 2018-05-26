@@ -39,6 +39,7 @@ namespace LeoAlvisService.Model
         public virtual DbSet<ProductDetail> ProductDetails { get; set; }
         public virtual DbSet<Show> Shows { get; set; }
         public virtual DbSet<ShowCategory> ShowCategories { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Track> Tracks { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
         public virtual DbSet<VideoServer> VideoServers { get; set; }

@@ -1,4 +1,5 @@
-﻿using LeoAlvisService.Services;
+﻿using LeoAlvisService.Model;
+using LeoAlvisService.Services;
 using LeoAlvisService.Utils;
 using LeoAlvisService.ViewModels;
 using System;
@@ -21,7 +22,9 @@ namespace YGFL.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int artistId)
         {
-            return View();
+            var artS = new ArtistService();
+            var art = artS.FindById(artistId);
+            return View(art);
         }
         [HttpPost]
         public JsonResult Edit(ArtistViewModel editVM)
@@ -34,7 +37,9 @@ namespace YGFL.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var art = new Artist();
+
+            return View(art);
         }
         [HttpPost]
         public JsonResult Create(ArtistViewModel createVM)

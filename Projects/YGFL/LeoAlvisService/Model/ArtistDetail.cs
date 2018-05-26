@@ -15,7 +15,9 @@ namespace LeoAlvisService.Model
     public partial class ArtistDetail
     {
         public int ID { get; set; }
-        public string Description { get; set; }
+        public string MemberRealName { get; set; }
+        public string MemberName { get; set; }
+        public string MemberDescription { get; set; }
         public int ArtistID { get; set; }
     
         public virtual Artist Artist { get; set; }

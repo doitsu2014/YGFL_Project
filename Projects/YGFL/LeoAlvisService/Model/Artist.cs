@@ -27,6 +27,8 @@ namespace LeoAlvisService.Model
         public string Name { get; set; }
         public string AvatarURL { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<System.DateTime> DebutDate { get; set; }
+        public Nullable<int> Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ArtistDetail> ArtistDetails { get; set; }

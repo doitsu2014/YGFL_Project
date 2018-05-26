@@ -30,6 +30,8 @@ namespace LeoAlvisService.Model
         public string BannerURL { get; set; }
         public Nullable<int> MainVideoID { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> AlbumSong { get; set; }
     
         public virtual Video Video { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

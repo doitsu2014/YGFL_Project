@@ -1,73 +1,69 @@
-﻿
-@{
-    ViewBag.Title = "Edit";
+﻿@model Artist
+@using LeoAlvisService.Model
+
+@this.Html.Partial("Editor", Model)
+@section editorscripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var data = {};
+            new Utils().GetFieldsFromFormData(document.querySelector('#editorForm'), data);
+            console.log(data);
+        });
+
+        $('#data_3 .input-group.date').datepicker({
+            startView: 2,
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            format: "dd/mm/yyyy"
+        });
+        var $image = $(".image-crop > img")
+
+        $($image).cropper({
+            preview: ".img-preview",
+        });
+        var $inputImage = $("#inputImage");
+        if (window.FileReader) {
+            $inputImage.change(function () {
+                var fileReader = new FileReader(),
+                    files = this.files,
+                    file;
+
+                if (!files.length) {
+                    return;
+                }
+
+                file = files[0];
+
+                if (/^image\/\w+$/.test(file.type)) {
+                    fileReader.readAsDataURL(file);
+                    fileReader.onload = function () {
+                        $inputImage.val("");
+                        $image.cropper("reset", true).cropper("replace", this.result);
+                    };
+                } else {
+                    showMessage("Please choose an image file.");
+                }
+            });
+        } else {
+            $inputImage.addClass("hide");
+        }
+        $("#zoomIn").click(function () {
+            $image.cropper("zoom", 0.1);
+        });
+
+        $("#zoomOut").click(function () {
+            $image.cropper("zoom", -0.1);
+        });
+
+        $("#rotateLeft").click(function () {
+            $image.cropper("rotate", 45);
+        });
+
+        $("#rotateRight").click(function () {
+            $image.cropper("rotate", -45);
+        });
+    </script>
 }
-
-<h2>Edit</h2>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-filled">
-            <div class="panel-heading">
-                <div class="panel-tools">
-                    <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
-                    <a class="panel-close"><i class="fa fa-times"></i></a>
-                </div>
-                Basic example
-            </div>
-            <div class="panel-body">
-                <p>Individual form controls automatically receive some global styling. All textual <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code> elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing.</p>
-                <form>
-                    <div class="form-group"><label for="exampleInputName">Username</label> <input type="text" class="form-control" id="exampleInputName" placeholder="Name"></div>
-                    <div class="form-group"><label for="exampleInputEmail1">Email address</label> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label> <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        <p class="help-block">Example block-level help text here.</p>
-                    </div>
-                    <div><label> <input type="checkbox"> Check me out </label></div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-filled">
-            <div class="panel-heading">
-                <div class="panel-tools">
-                    <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
-                    <a class="panel-close"><i class="fa fa-times"></i></a>
-                </div>
-                Horizontal form
-            </div>
-            <div class="panel-body">
-                <p>Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form (which doesn't have to be a <code>&lt;form&gt;</code>). Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                        <div class="col-sm-10"><input type="email" class="form-control" id="inputEmail3" placeholder="Email"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10"><input type="password" class="form-control" id="inputPassword3" placeholder="Password"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="panel panel-filled">
-            <div class="panel-heading">
-                <div class="panel-tools">
-                    <a class="panel-toggle"><i class="fa fa-chevron-up"></i></a>
-                    <a class="panel-close"><i class="fa fa-times"></i></a>
-                </div>
-                Inline form
-            </div>
-            <div class="panel-body">
-                <p>Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned and inline-block controls. <strong>This only applies to forms within viewports that are at least 768px wide.</strong></p>
-                <form class="form-inline">
-                    <div class="form-group"><label for="exampleInputName2">Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe"></div>
-                    <div class="form-group"><label for="exampleInputEmail2">Email</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
